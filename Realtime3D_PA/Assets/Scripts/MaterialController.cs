@@ -17,6 +17,11 @@ public class MaterialController : MonoBehaviour
     /// </summary>
     public Material[] availableMaterials;
 
+   /// <summary>
+   /// Das gerade eben geladene Material
+   /// </summary>
+    private GameObject currentLoadedMaterial;
+
     /// <summary>
     /// Mesh Renderer dessen Material getauscht werden soll
     /// </summary>
