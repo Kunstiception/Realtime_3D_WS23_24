@@ -358,7 +358,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152579897}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -2138,7 +2138,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152579897}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152579897}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -2560,7 +2560,19 @@ MonoBehaviour:
   m_Group: {fileID: 744561652}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1152579896}
+        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
+        m_MethodName: SetMaterial
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &656301125
 GameObject:
@@ -2645,8 +2657,20 @@ MonoBehaviour:
   m_Group: {fileID: 744561652}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 1152579896}
+        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
+        m_MethodName: SetMaterial
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &672037593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,7 +4104,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152579897}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -5804,7 +5828,6 @@ GameObject:
   - component: {fileID: 1152579893}
   - component: {fileID: 1152579892}
   - component: {fileID: 1152579896}
-  - component: {fileID: 1152579897}
   m_Layer: 0
   m_Name: Cube
   m_TagString: ColorChange
@@ -5907,33 +5930,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1152579891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f8fb7f851c743478b65bab28df359c, type: 3}
+  m_Script: {fileID: 11500000, guid: e72a2f5f657a97248896435f6eab943d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialSelectionUI: {fileID: 0}
   availableMaterials:
-  - {fileID: 2100000, guid: 3293f8691370b8a439bc2cfd3872a6a5, type: 2}
   - {fileID: 2100000, guid: f0401a16416d6c945b98b501a6c57be3, type: 2}
+  - {fileID: 2100000, guid: 3293f8691370b8a439bc2cfd3872a6a5, type: 2}
   materialRenderer: {fileID: 1152579893}
---- !u!114 &1152579897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152579891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f060717199065b4d831613b303947af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialRenderer: {fileID: 1152579893}
-  availableColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0.11038928, b: 0.9056604, a: 0}
-  - {r: 0.85094017, g: 0.90588236, b: 0, a: 0}
-  colorSelectionUI: {fileID: 412205841}
 --- !u!1 &1195884725
 GameObject:
   m_ObjectHideFlags: 0
@@ -7284,8 +7287,51 @@ MonoBehaviour:
   m_Group: {fileID: 744561652}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1152579896}
+        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
+        m_MethodName: SetMaterial
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!1 &1477452696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1477452697}
+  m_Layer: 0
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1477452697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477452696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1734827, y: 0.18243937, z: 0.7591448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509017364
 GameObject:
   m_ObjectHideFlags: 0
@@ -9415,7 +9461,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152579897}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -9897,6 +9943,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1477452697}
   - {fileID: 1152579895}
   - {fileID: 2139769757}
   - {fileID: 539815498}

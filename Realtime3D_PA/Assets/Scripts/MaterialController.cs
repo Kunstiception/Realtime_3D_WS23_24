@@ -7,20 +7,9 @@
 public class MaterialController : MonoBehaviour
 {
     /// <summary>
-    /// Referenz zum Materialauswahl-Menü
-    /// </summary>
-    public GameObject materialSelectionUI;
-
-
-    /// <summary>
     /// Liste aller verfügbaren Materialien
     /// </summary>
     public Material[] availableMaterials;
-
-   /// <summary>
-   /// Das gerade eben geladene Material
-   /// </summary>
-    private GameObject currentLoadedMaterial;
 
     /// <summary>
     /// Mesh Renderer dessen Material getauscht werden soll
@@ -37,6 +26,10 @@ public class MaterialController : MonoBehaviour
         if (index >= 0 && index <= availableMaterials.Length - 1)
         {
             materialRenderer.material = availableMaterials[index];            
+        }
+        //else
+        {
+            materialRenderer.material = null;
         }
     }
 }
