@@ -11,10 +11,7 @@ public class MaterialController : MonoBehaviour
     /// </summary>
     public Material[] availableMaterials;
 
-    /// <summary>
-    /// Mesh Renderer dessen Material getauscht werden soll
-    /// </summary>
-    public Renderer materialRenderer;
+    Renderer materialRenderer;
 
     /// <summary>
     /// Setzt ein Material für den MeshRenderer
@@ -22,12 +19,13 @@ public class MaterialController : MonoBehaviour
     /// <param name="index">Index des neuen Material</param>
     public void SetMaterial(int index)
     {
+        
         // Ist der Index gültig?
         if (index >= 0 && index <= availableMaterials.Length - 1)
         {
             materialRenderer.material = availableMaterials[index];            
         }
-        //else
+        else
         {
             materialRenderer.material = null;
         }

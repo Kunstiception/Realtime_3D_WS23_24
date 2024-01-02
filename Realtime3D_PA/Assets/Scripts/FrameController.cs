@@ -2,103 +2,160 @@ using UnityEngine;
 
 /// <summary>
 /// Steuert das Laden / Entladen der Innenleben (Inlays)
-/// und stellt eine Methode zum Einfärben der Innenleben bereit
+/// und stellt eine Methode zum Einfï¿½rben der Innenleben bereit
 /// </summary>
 public class FrameController : MonoBehaviour
 {
     /// <summary>
-    /// Liste der verfügbaren Innenleben
+    /// Liste der verfï¿½gbaren Innenleben
     /// </summary>
-    public GameObject[] inlayPrefabs;
+    public GameObject[] framePrefabs;
 
     /// <summary>
     /// Defiert unter welches GameObject das geladene
-    /// Innenleben gehängt werden soll
+    /// Innenleben gehï¿½ngt werden soll
     /// </summary>
     public GameObject anchorTransform;
 
     /// <summary>
-    /// Liste mit verfügbaren Farben
+    /// Liste mit verfï¿½gbaren Farben
     /// </summary>
     public Color[] availableColors;
 
+
     /// <summary>
-    /// Referenz zum Farbauswahl-Menü
+    /// Referenz zum Rahmenauswahl-Menï¿½
+    /// </summary>
+    public GameObject frameSelectionUI;
+
+
+    /// <summary>
+    /// Referenz zum Farbauswahl-Menï¿½
     /// </summary>
     public GameObject colorSelectionUI;
 
     /// <summary>
-    /// Referenz zu einem geladenen Innenleben
+    /// Referenz zum Materialauswahl-Menï¿½
     /// </summary>
-    private GameObject currentLoadedInlay;
+    public GameObject materialSelectionUI;
 
     /// <summary>
-    /// Aktuell ausgeählter Farb-Index
+    /// Referenz zu einem geladenen Innenleben
+    /// </summary>
+    private GameObject currentLoadedFrame;
+
+    /// <summary>
+    /// Aktuell ausgeï¿½hlter Farb-Index
     /// </summary>
     private int currentColorIndex = 0;
 
+    /// <summary>
+    /// Aktuell ausgewÃ¤hlter Material-Index
+    /// </summary>
+    private int currentMaterialIndex = 0;
 
     private void Start()
     {
         // Set to inital state
-        SetInlay(-1);
+        SetFrame(-1);
     }
 
     /// <summary>
-    /// Lädt ein Innenleben aus dem Array für einen übergebenen Index    
+    /// LÃ¤dt einen Rahmen aus dem Array fÃ¼r einen ï¿½bergebenen Index    
     /// </summary>
-    /// <param name="index">Welches Innenleben soll geladen werden</param>
-    public void SetInlay(int index)
+    /// <param name="index">Welcher Rahmen soll geladen werden</param>
+    public void SetFrame(int index)
     {
-        if (currentLoadedInlay != null)
+        if (currentLoadedFrame != null)
         {
-            Destroy(currentLoadedInlay);
-            currentLoadedInlay = null;
+            Destroy(currentLoadedFrame);
+            currentLoadedFrame = null;
         }
 
-        // Ist der übergebene Index gültig
-        if (index >= 0 && index <= inlayPrefabs.Length - 1)
+        // Ist der Ã¼bergebene Index gÃ¼ltig
+        if (index >= 0 && index <= framePrefabs.Length - 1)
         {
             // Prefab laden
-            GameObject loadedInlay = Instantiate(inlayPrefabs[index]);
+            GameObject loadedFrame = Instantiate(framePrefabs[index]);
 
-            // Geladenes Prefab unter das angegebene GameObject hängen
-            loadedInlay.transform.SetParent(anchorTransform.transform, false);
+            // Geladenes Prefab unter das angegebene GameObject hÃ¤ngen
+            loadedFrame.transform.SetParent(anchorTransform.transform, false);
 
             // Geladenes Innenleben speichern
-            currentLoadedInlay = loadedInlay;
+            currentLoadedFrame = loadedFrame;
 
-            // TODO: Bereits ausgewählte Farbe wiederherstellen
+            // TODO: Bereits ausgewï¿½hlte Farbe wiederherstellen
             SetColor(currentColorIndex);
 
-            // Farb-Auswahl-Menü anzeigen
-            colorSelectionUI.SetActive(true);
-        }
-        else
-        {
-            // Kein Innenleben geladen > Farb-Auswahl-Menü ausschalten
-            colorSelectionUI.SetActive(false);
+            // TODO: Bereits ausgewï¿½hlte Material wiederherstellen
+            SetMaterial(currentMaterialIndex);
+            
+            //Derzeitigen Rahmen ausgeben
+            Debug.Log(currentLoadedFrame.name);
         }
     }
 
     /// <summary>
-    /// Setzt die Farbe für ein geladenes Innenleben
+    /// Setzt die Farbe fï¿½r ein geladenes Innenleben
     /// </summary>
-    /// <param name="index">Index der gewünschten Farbe</param>
+    /// <param name="index">Index der gewï¿½nschten Farbe</param>
     public void SetColor(int index)
     {
         // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
-        Renderer[] renderer = currentLoadedInlay.GetComponentsInChildren<Renderer>(true);
+        Renderer[] renderer = currentLoadedFrame.GetComponentsInChildren<Renderer>(true);
 
         for (int i = 0; i < renderer.Length; i++)
         {
-            // Überprüfen ob der Renderer zu einem GameObject mit einem Tag gehört
+            // ï¿½berprï¿½fen ob der Renderer zu einem GameObject mit einem Tag gehï¿½rt
             if (renderer[i].gameObject.CompareTag("ColorChange"))
             {
                 renderer[i].material.SetColor("_Color", availableColors[index]);
             }
         }
-        // Index der gerade ausgewählten Farbe merken
+        // Index der gerade ausgewï¿½hlten Farbe merken
         currentColorIndex = index;
     }
+
+
+    /// <summary>
+    /// Liste aller verfï¿½gbaren Materialien
+    /// </summary>
+    public Material[] availableMaterials;
+
+
+    /// <summary>
+    /// Das Default-Material
+    /// </summary>
+    public Material defaultMaterial;
+
+    /// <summary>
+    /// Das derzeit angewandte Material
+    /// </summary>
+    private Material currentMaterial;
+
+
+    /// <summary>
+    /// Setzt ein Material fï¿½r den MeshRenderer
+    /// </summary>
+    /// <param name="index">Index des neuen Material</param>
+    public void SetMaterial(int index)
+    {
+
+        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
+        Renderer[] renderer = currentLoadedFrame.GetComponentsInChildren<Renderer>(true);
+
+        for (int i = 0; i < currentLoadedFrame.GetComponentsInChildren<Renderer>().Length; i++)
+        {
+            // ï¿½berprï¿½fen ob der Renderer zu einem GameObject mit einem Tag gehï¿½rt
+            if (renderer[i].gameObject.CompareTag("ColorChange"))
+            {
+                currentMaterial = availableMaterials[index];
+            }
+            else
+                currentMaterial = defaultMaterial;
+        }
+        currentMaterialIndex = index;
+        Debug.Log(currentMaterial.name);
+    }
+   
 }
