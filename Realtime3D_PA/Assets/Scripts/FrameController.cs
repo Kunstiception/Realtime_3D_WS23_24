@@ -57,7 +57,8 @@ public class FrameController : MonoBehaviour
     private void Start()
     {
         // Set to inital state
-        SetFrame(-1);
+        SetFrame(0);
+        SetMaterial(0);
     }
 
     /// <summary>
@@ -89,7 +90,7 @@ public class FrameController : MonoBehaviour
 
             // TODO: Bereits ausgew�hlte Material wiederherstellen
             SetMaterial(currentMaterialIndex);
-            
+
             //Derzeitigen Rahmen ausgeben
             Debug.Log(currentLoadedFrame.name);
         }
@@ -133,7 +134,6 @@ public class FrameController : MonoBehaviour
     /// </summary>
     private Material currentMaterial;
 
-
     /// <summary>
     /// Setzt ein Material f�r den MeshRenderer
     /// </summary>
@@ -143,7 +143,11 @@ public class FrameController : MonoBehaviour
 
         // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
         Renderer[] renderer = currentLoadedFrame.GetComponentsInChildren<Renderer>(true);
-
+        
+        if (currentLoadedFrame != null)
+        {
+            Material currentMaterial = currentLoadedFrame.GetComponent<Material>();
+        }
         for (int i = 0; i < currentLoadedFrame.GetComponentsInChildren<Renderer>().Length; i++)
         {
             // �berpr�fen ob der Renderer zu einem GameObject mit einem Tag geh�rt
@@ -157,5 +161,4 @@ public class FrameController : MonoBehaviour
         currentMaterialIndex = index;
         Debug.Log(currentMaterial.name);
     }
-   
 }
