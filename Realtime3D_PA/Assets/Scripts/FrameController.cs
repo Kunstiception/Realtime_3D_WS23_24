@@ -42,7 +42,7 @@ public class FrameController : MonoBehaviour
     /// <summary>
     /// Referenz zu einem geladenen Innenleben
     /// </summary>
-    private GameObject currentLoadedFrame;
+    public GameObject currentLoadedFrame;
 
     /// <summary>
     /// Aktuell ausge�hlter Farb-Index
