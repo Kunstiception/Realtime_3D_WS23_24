@@ -7,6 +7,16 @@ using UnityEngine;
 public class FrameController : MonoBehaviour
 {
     /// <summary>
+    /// Verknüpfung zum ColorController-Skript
+    /// </summary>
+    public ColorController colorController;
+    
+    /// <summary>
+    /// Verknüpfung zum MaterialController-Skript
+    /// </summary>
+    public MaterialController materialController;
+    
+    /// <summary>
     /// Liste der verf�gbaren Innenleben
     /// </summary>
     public GameObject[] framePrefabs;
@@ -18,47 +28,20 @@ public class FrameController : MonoBehaviour
     public GameObject anchorTransform;
 
     /// <summary>
-    /// Liste mit verf�gbaren Farben
-    /// </summary>
-    public Color[] availableColors;
-
-
-    /// <summary>
     /// Referenz zum Rahmenauswahl-Men�
     /// </summary>
     public GameObject frameSelectionUI;
-
-
-    /// <summary>
-    /// Referenz zum Farbauswahl-Men�
-    /// </summary>
-    public GameObject colorSelectionUI;
-
-    /// <summary>
-    /// Referenz zum Materialauswahl-Men�
-    /// </summary>
-    public GameObject materialSelectionUI;
 
     /// <summary>
     /// Referenz zu einem geladenen Innenleben
     /// </summary>
     public GameObject currentLoadedFrame;
 
-    /// <summary>
-    /// Aktuell ausge�hlter Farb-Index
-    /// </summary>
-    private int currentColorIndex = 0;
-
-    /// <summary>
-    /// Aktuell ausgewählter Material-Index
-    /// </summary>
-    private int currentMaterialIndex = 0;
-
     private void Start()
     {
         // Set to inital state
         SetFrame(0);
-        SetMaterial(0);
+        materialController.SetMaterial(0);
     }
 
     /// <summary>
@@ -86,79 +69,13 @@ public class FrameController : MonoBehaviour
             currentLoadedFrame = loadedFrame;
 
             // TODO: Bereits ausgew�hlte Farbe wiederherstellen
-            SetColor(currentColorIndex);
+            colorController.SetColor(colorController.currentColorIndex);
 
             // TODO: Bereits ausgew�hlte Material wiederherstellen
-            SetMaterial(currentMaterialIndex);
+            materialController.SetMaterial(materialController.currentMaterialIndex);
 
             //Derzeitigen Rahmen ausgeben
             Debug.Log(currentLoadedFrame.name);
         }
-    }
-
-    /// <summary>
-    /// Setzt die Farbe f�r ein geladenes Innenleben
-    /// </summary>
-    /// <param name="index">Index der gew�nschten Farbe</param>
-    public void SetColor(int index)
-    {
-        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
-        Renderer[] renderer = currentLoadedFrame.GetComponentsInChildren<Renderer>(true);
-
-        for (int i = 0; i < renderer.Length; i++)
-        {
-            // �berpr�fen ob der Renderer zu einem GameObject mit einem Tag geh�rt
-            if (renderer[i].gameObject.CompareTag("ColorChange"))
-            {
-                renderer[i].material.SetColor("_Color", availableColors[index]);
-            }
-        }
-        // Index der gerade ausgew�hlten Farbe merken
-        currentColorIndex = index;
-    }
-
-
-    /// <summary>
-    /// Liste aller verf�gbaren Materialien
-    /// </summary>
-    public Material[] availableMaterials;
-
-
-    /// <summary>
-    /// Das Default-Material
-    /// </summary>
-    public Material defaultMaterial;
-
-    /// <summary>
-    /// Das derzeit angewandte Material
-    /// </summary>
-    private Material currentMaterial;
-
-    /// <summary>
-    /// Setzt ein Material f�r den MeshRenderer
-    /// </summary>
-    /// <param name="index">Index des neuen Material</param>
-    public void SetMaterial(int index)
-    {
-
-        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
-        Renderer[] renderer = currentLoadedFrame.GetComponentsInChildren<Renderer>(true);
-        
-        if (currentLoadedFrame != null)
-        {
-            Material currentMaterial = currentLoadedFrame.GetComponent<Material>();
-        }
-        for (int i = 0; i < currentLoadedFrame.GetComponentsInChildren<Renderer>().Length; i++)
-        {
-            // �berpr�fen ob der Renderer zu einem GameObject mit einem Tag geh�rt
-            if (renderer[i].gameObject.CompareTag("ColorChange"))
-            {
-                currentMaterial = availableMaterials[index];
-            }
-            else
-                currentMaterial = defaultMaterial;
-        }
-        currentMaterialIndex = index;
-        Debug.Log(currentMaterial.name);
     }
 }

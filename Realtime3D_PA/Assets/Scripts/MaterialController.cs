@@ -7,27 +7,63 @@
 public class MaterialController : MonoBehaviour
 {
     /// <summary>
+    /// Verknüpfung zum FrameController-Skript
+    /// </summary>
+    public FrameController frameController;
+    
+    /// <summary>
     /// Liste aller verfügbaren Materialien
     /// </summary>
     public Material[] availableMaterials;
 
+    /// <summary>
+    /// Referenz zum Materialauswahl-Men�
+    /// </summary>
+    public GameObject materialSelectionUI;
+
+    /// <summary>
+    /// Der Renderer, dessen Material geändert werden soll
+    /// </summary>
     Renderer materialRenderer;
 
     /// <summary>
-    /// Setzt ein Material für den MeshRenderer
+    /// Das Default-Material
+    /// </summary>
+    public Material defaultMaterial;
+
+    /// <summary>
+    /// Das derzeit angewandte Material
+    /// </summary>
+    [SerializeField]
+    private Material currentMaterial;
+
+    /// <summary>
+    /// Aktuell ausgewählter Material-Index
+    /// </summary>
+    public int currentMaterialIndex = 0;
+
+    private void Start()
+    {
+        Material currentMaterial = defaultMaterial;
+    }
+    
+    
+    /// <summary>
+    /// Setzt ein Material f�r den MeshRenderer
     /// </summary>
     /// <param name="index">Index des neuen Material</param>
     public void SetMaterial(int index)
     {
-        
-        // Ist der Index gültig?
-        if (index >= 0 && index <= availableMaterials.Length - 1)
-        {
-            materialRenderer.material = availableMaterials[index];            
-        }
-        else
-        {
-            materialRenderer.material = null;
-        }
+
+        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
+        Renderer renderer = frameController.currentLoadedFrame.GetComponent<Renderer>();
+
+        currentMaterial = availableMaterials[index];
+      
+        currentMaterialIndex = index;
+
+        renderer.material = currentMaterial;
+
+        Debug.Log(currentMaterial.name);
     }
 }
