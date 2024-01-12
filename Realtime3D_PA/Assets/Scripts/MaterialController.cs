@@ -10,7 +10,12 @@ public class MaterialController : MonoBehaviour
     /// Verknüpfung zum FrameController-Skript
     /// </summary>
     public FrameController frameController;
-    
+
+    /// <summary>
+    /// Verknüpfung zum ColorController-Skript
+    /// </summary>
+    public ColorController colorController;
+
     /// <summary>
     /// Liste aller verfügbaren Materialien
     /// </summary>
@@ -55,14 +60,22 @@ public class MaterialController : MonoBehaviour
     public void SetMaterial(int index)
     {
 
-        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
+        // Suche nach Renderer-Komponente des akutuellen Rahmens
         Renderer renderer = frameController.currentLoadedFrame.GetComponent<Renderer>();
-
+        // Das Material ist gleich dem derzeit angewählten Material
         currentMaterial = availableMaterials[index];
-      
-        currentMaterialIndex = index;
-
+        // Material setzen
         renderer.material = currentMaterial;
+        // Index merken
+        currentMaterialIndex = index;
+        
+        // Gerade ausgewählte Farbe setzen
+        if(colorController.currentColorIndex != null)
+        {
+            colorController.SetColor(colorController.currentColorIndex);
+        }
+        
+
 
         Debug.Log(currentMaterial.name);
     }
