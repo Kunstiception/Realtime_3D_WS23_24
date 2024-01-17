@@ -35,13 +35,16 @@ public class UIController : MonoBehaviour
         // Bereits geöffnetes Panel schließen
         if (currentOpenPanel != null) 
         {
-            currentOpenPanel.Hide();
+            currentOpenPanel.gameObject.SetActive(false);
             currentOpenPanel = null;
         }
 
         if(index>=0 && index <=panels.Length - 1) 
         {
             currentOpenPanel = panels[index];
+            // Gerade ausgewähltes Panel aktiv schalten
+            currentOpenPanel.gameObject.SetActive(true);
+            // Und auch zeigen
             currentOpenPanel.Show();
         }
 
@@ -56,7 +59,8 @@ public class UIController : MonoBehaviour
     {
         for (int i = 0; i < panels.Length; i++)
         {
-            panels[i].Hide();
+            // Inaktivschaltung, da sich sonst die überlappenden Toggles gegenseitig blockieren
+            panels[i].gameObject.SetActive(false);
         }
     }
 
