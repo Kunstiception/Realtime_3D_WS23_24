@@ -73,9 +73,6 @@ public class FrameController : MonoBehaviour
 
             // TODO: Bereits ausgew�hlte Material wiederherstellen
             materialController.SetMaterial(materialController.currentMaterialIndex);
-
-            //Derzeitigen Rahmen ausgeben
-            Debug.Log(currentLoadedFrame.name);
         }
     }
 }

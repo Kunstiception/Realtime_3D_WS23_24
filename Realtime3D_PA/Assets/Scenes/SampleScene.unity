@@ -541,7 +541,31 @@ MonoBehaviour:
   m_Group: {fileID: 1582172495}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197030234}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305310412}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &172663129
 GameObject:
@@ -796,6 +820,7 @@ MonoBehaviour:
   image: {fileID: 191199418}
   child: {fileID: 191199413}
   parent: {fileID: 340112921}
+  framePosition: {x: 0, y: 0, z: 0}
   frameController: {fileID: 1305310407}
 --- !u!114 &191199416
 MonoBehaviour:
@@ -916,6 +941,7 @@ GameObject:
   - component: {fileID: 197030232}
   - component: {fileID: 197030231}
   - component: {fileID: 197030230}
+  - component: {fileID: 197030234}
   m_Layer: 0
   m_Name: Controller_stehend
   m_TagString: Untagged
@@ -1002,6 +1028,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197030234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197030229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7aca55ea292ba147a2094327ef7cf4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameController: {fileID: 197030232}
+  decorations:
+  - {fileID: 2216196343575373452, guid: 16f2c5654412e7d41ae74f998a906c93, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
+  currentLoadedDecoration: {fileID: 0}
+  decorationSelectionUI: {fileID: 1582172493}
 --- !u!1 &246188036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1210,7 @@ MonoBehaviour:
   image: {fileID: 246188039}
   child: {fileID: 246188036}
   parent: {fileID: 340112921}
+  framePosition: {x: 0, y: 0, z: 0}
   frameController: {fileID: 197030232}
 --- !u!1 &260717270
 GameObject:
@@ -1816,7 +1861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &340112922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2363,14 +2408,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6469,7 +6514,31 @@ MonoBehaviour:
   m_Group: {fileID: 1582172495}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197030234}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305310412}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1142266999
 GameObject:
@@ -7081,7 +7150,31 @@ MonoBehaviour:
   m_Group: {fileID: 1582172495}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197030234}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305310412}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1301990650
 GameObject:
@@ -7170,6 +7263,7 @@ GameObject:
   - component: {fileID: 1305310407}
   - component: {fileID: 1305310410}
   - component: {fileID: 1305310411}
+  - component: {fileID: 1305310412}
   m_Layer: 0
   m_Name: "Controller_h\xE4ngend"
   m_TagString: Untagged
@@ -7256,6 +7350,24 @@ MonoBehaviour:
   - {r: 0.1535995, g: 1, b: 0, a: 0}
   - {r: 0.9995657, g: 1, b: 0, a: 0}
   - {r: 1, g: 0, b: 0.6013117, a: 0}
+--- !u!114 &1305310412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305310406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7aca55ea292ba147a2094327ef7cf4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameController: {fileID: 1305310407}
+  decorations:
+  - {fileID: 2216196343575373452, guid: 16f2c5654412e7d41ae74f998a906c93, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
+  currentLoadedDecoration: {fileID: 0}
+  decorationSelectionUI: {fileID: 1582172493}
 --- !u!1 &1312391333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7584,7 +7696,31 @@ MonoBehaviour:
   m_Group: {fileID: 1582172495}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197030234}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305310412}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1340452563
 GameObject:
@@ -8048,18 +8184,6 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1305310407}
         m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
         m_MethodName: SetFrame
@@ -8076,6 +8200,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
         m_MethodName: SetFrame
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 191199415}
+        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
+        m_MethodName: SetNewParent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8529,7 +8665,31 @@ MonoBehaviour:
   m_Group: {fileID: 1582172495}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197030234}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305310412}
+        m_TargetAssemblyTypeName: DecorationController, Assembly-CSharp
+        m_MethodName: SetDecoration
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1553052435
 GameObject:

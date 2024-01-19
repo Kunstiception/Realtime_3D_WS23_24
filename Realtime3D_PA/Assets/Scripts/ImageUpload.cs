@@ -23,7 +23,7 @@ public class ImageUpload : MonoBehaviour
     // Unser Rahmen
     private GameObject frame;
     // Die Position unseres Rahmens
-    private Vector3 framePosition;
+    public Vector3 framePosition;
     // Das neue Eltern-Objekt
     private GameObject newParent;
     // Refernz zum FrameController-Skript
