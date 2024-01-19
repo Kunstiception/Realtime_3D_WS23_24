@@ -24,6 +24,16 @@ public class DecorationController : MonoBehaviour
     /// </summary>
     public GameObject decorationSelectionUI;
 
+    private Vector3 frameSize;
+
+    private Vector3 framePosition;
+
+    private Vector3 decorationPosition;
+
+    private Vector3 offSet;
+
+    private Vector3 decorationSize;
+
 
     public void SetDecoration(int index)
     {
@@ -43,8 +53,26 @@ public class DecorationController : MonoBehaviour
             // Die geladene Deko wird in der neuen Variable gespeichert
             currentLoadedDecoration = loadedDecoration;
 
+            // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
+           frameSize = frameController.currentLoadedFrame.GetComponent<Renderer>().bounds.size;
+
+            // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
+            decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
+
+            // die Position des aktuellen Rahmens als Vektor 3
+            framePosition = frameController.currentLoadedFrame.transform.position;
+            
+            // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+            offSet = new Vector3(0.0f, -frameSize.y/2 + decorationSize.y/2, frameSize.z);
+            
             // An dieselbe Position wie der gerade ausgewählte Rahmen setzen
-            currentLoadedDecoration.transform.position = frameController.currentLoadedFrame.transform.position;
+            currentLoadedDecoration.transform.position = framePosition + offSet;
+
+            //decorationPosition = framePosition;
+
+            
+
+
         }
     }
 }
