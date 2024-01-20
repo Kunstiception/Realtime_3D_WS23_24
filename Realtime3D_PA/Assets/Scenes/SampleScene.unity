@@ -1044,6 +1044,8 @@ MonoBehaviour:
   decorations:
   - {fileID: 2216196343575373452, guid: 16f2c5654412e7d41ae74f998a906c93, type: 3}
   - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
   currentLoadedDecoration: {fileID: 0}
   decorationSelectionUI: {fileID: 1582172493}
 --- !u!1 &246188036
@@ -7365,6 +7367,8 @@ MonoBehaviour:
   frameController: {fileID: 1305310407}
   decorations:
   - {fileID: 2216196343575373452, guid: 16f2c5654412e7d41ae74f998a906c93, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
+  - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
   - {fileID: 4673719429935275707, guid: a6166586023c76c4ebfba07488b28bdf, type: 3}
   currentLoadedDecoration: {fileID: 0}
   decorationSelectionUI: {fileID: 1582172493}
