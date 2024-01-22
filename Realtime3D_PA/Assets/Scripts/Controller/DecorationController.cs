@@ -55,6 +55,7 @@ public class DecorationController : MonoBehaviour
         // Vorherige Dekoration entfernen
         if (currentLoadedDecoration != null)
         {
+            // Jetzige Dekoration entsorgen
             Destroy(currentLoadedDecoration);
             currentLoadedDecoration = null;
         }
@@ -72,7 +73,7 @@ public class DecorationController : MonoBehaviour
         decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
 
         // Ist der übergebene Index gültig
-        if (index == 0 && index <= decorations.Length - 1)
+        if (index == 0)
         {
 
 
@@ -88,7 +89,7 @@ public class DecorationController : MonoBehaviour
         }
 
         // Ist der übergebene Index gültig
-        if (index == 1 && index <= decorations.Length - 1)
+        if (index == 1)
         {
 
 
@@ -104,7 +105,7 @@ public class DecorationController : MonoBehaviour
         }
 
         // Ist der übergebene Index gültig
-        if (index == 2 && index <= decorations.Length - 1)
+        if (index == 2)
         {
 
 
@@ -120,7 +121,7 @@ public class DecorationController : MonoBehaviour
         }
 
         // Ist der übergebene Index gültig
-        if (index == 3 && index <= decorations.Length - 1)
+        if (index == 3)
         {
 
 

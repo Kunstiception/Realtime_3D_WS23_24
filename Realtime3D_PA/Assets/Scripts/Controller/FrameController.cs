@@ -15,6 +15,11 @@ public class FrameController : MonoBehaviour
     /// Verknüpfung zum MaterialController-Skript
     /// </summary>
     public MaterialController materialController;
+
+    /// <summary>
+    /// Referenz zum DecorationController-Skript
+    /// </summary>
+    public DecorationController decorationController;
     
     /// <summary>
     /// Liste der verf�gbaren Innenleben
@@ -42,6 +47,7 @@ public class FrameController : MonoBehaviour
         // Set to inital state
         SetFrame(0);
         materialController.SetMaterial(0);
+        colorController.SetColor(0);
     }
 
     /// <summary>
@@ -50,10 +56,10 @@ public class FrameController : MonoBehaviour
     /// <param name="index">Welcher Rahmen soll geladen werden</param>
     public void SetFrame(int index)
     {
+        // Jetzigen ausgewählten Rahmen entsorgen
         if (currentLoadedFrame != null)
         {
             Destroy(currentLoadedFrame);
-            currentLoadedFrame = null;
         }
 
         // Ist der übergebene Index gültig
@@ -75,4 +81,14 @@ public class FrameController : MonoBehaviour
             materialController.SetMaterial(materialController.currentMaterialIndex);
         }
     }
+
+    public void Reset()
+    {
+        SetFrame(0);
+        materialController.SetMaterial(0);
+        colorController.SetColor(0);
+        Destroy(decorationController.currentLoadedDecoration);
+    }
+        
+
 }
