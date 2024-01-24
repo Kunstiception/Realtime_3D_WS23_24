@@ -479,7 +479,9 @@ MonoBehaviour:
   image: {fileID: 7784065007226825027}
   child: {fileID: 3298995171934289632}
   parent: {fileID: 3511546803155786452}
+  framePosition: {x: 0, y: 0, z: 0}
   frameController: {fileID: 0}
+  userImage: {fileID: 0}
 --- !u!1 &3511546803155786452
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +551,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3511546803155786452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -564,7 +566,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4022981297470411466
 MonoBehaviour:
   m_ObjectHideFlags: 0
