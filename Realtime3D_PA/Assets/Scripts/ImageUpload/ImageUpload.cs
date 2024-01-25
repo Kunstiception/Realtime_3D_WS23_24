@@ -25,16 +25,12 @@ public class ImageUpload : MonoBehaviour
     public FrameController frameController;
     // Das hochgeladene Bild
     public Texture userImage;
-
+    // Die Breite des hochegeladenen Bildes
     private float userImageWidth;
-
+    // Die Höhe des hochegeladenen Bildes
     private float userImageHeight;
-
+    // Das daraus resultierende Seitenverhältnis
     private float userImageAspect;
-
-    private Vector2 originalSize; 
-
-    private RawImage rawNewAspect;
 
 
 
@@ -42,11 +38,13 @@ public class ImageUpload : MonoBehaviour
     // https://www.reddit.com/r/gamedev/comments/dhw8ro/unity_c_allowing_a_player_to_import_an_image_mid/
     private void Awake()
     {
+        // RawImage ermitteln
         image = GetComponentInChildren<RawImage>();
     }
 
     public void OpenExplorer()
     {
+        // Hochgeladenes Bild holen
         path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
         GetImage();
     }
@@ -60,6 +58,7 @@ public class ImageUpload : MonoBehaviour
 
         void UpdateImage()
         {
+            // Bild speichern
             WWW www = new WWW("file:///" + path);
             image.texture = www.texture;
             // Speichert das Png als Textur ab
@@ -73,36 +72,28 @@ public class ImageUpload : MonoBehaviour
             userImageAspect = userImageWidth / userImageHeight;
             Debug.Log(userImageAspect);
 
-            // https://docs.unity3d.com/530/Documentation/ScriptReference/RectTransform-sizeDelta.html
-            originalSize = new Vector2(image.transform.localScale.x, image.transform.localScale.y);
-
-            image.rectTransform.sizeDelta = new Vector2(userImageWidth, userImageHeight);
+            // Das Seitenverhätlnis des hochgeladenen Bildes auf das RawImage anwenden (scheint wirkungslos zu sein, wirkliche Anpassung geschieht durch die Einstellungen im Komponenten-Menü)
             // https://docs.unity3d.com/2018.3/Documentation/ScriptReference/UI.AspectRatioFitter-aspectRatio.html
             image.GetComponent<AspectRatioFitter>().aspectRatio = userImageAspect;
-            Debug.Log(image.GetComponent<AspectRatioFitter>().aspectRatio);
+            Debug.Log(image.GetComponent<AspectRatioFitter>().aspectRatio);  
             
-            image.rectTransform.sizeDelta = new Vector2(originalSize.x, originalSize.y);
-            
-
-            //image.rectTransform.SizeToParent;
-
         }
     }
 
 
 
     // https://docs.unity3d.com/ScriptReference/Transform.SetParent.html
-    public void SetNewParent()
-    {
+    //public void SetNewParent()
+    //{
         // Der Rahmen ist der gerade aktive Rahmen
-        frame = frameController.currentLoadedFrame;
+        //frame = frameController.currentLoadedFrame;
         //
-        newParent = frameController.currentLoadedFrame;
+        //newParent = frameController.currentLoadedFrame;
         // Sets "newParent" as the new parent of the child GameObject.
-        parent = newParent;
+        //parent = newParent;
         // Diese Variable enthält die Position des gerade aktiven Rahmens
-        framePosition = frame.transform.position;
+        //framePosition = frame.transform.position;
         // Das Kindobjekt wird an die Position des Rahmens gesetzt
-        child.transform.position = framePosition;
-    }
+        //child.transform.position = framePosition;
+    //}
 }
