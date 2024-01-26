@@ -79,6 +79,7 @@ public class DecorationController : MonoBehaviour
 
             // die Position des aktuellen Rahmens als Vektor 3
             framePosition = frameController.currentLoadedFrame.transform.position;
+            Debug.Log(framePosition);
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
