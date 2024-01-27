@@ -9,11 +9,6 @@ public class UIController : MonoBehaviour
     /// Liste aller Menüs
     /// </summary>
     public UIPanel[] panels;
-    
-    /// <summary>
-    /// Referenz zum Animator, welche die Kamerasteuerung übernimmt
-    /// </summary>
-    public Animator animator;
 
     /// <summary>
     /// Welches Menü wird gerade angezeigt
@@ -47,9 +42,6 @@ public class UIController : MonoBehaviour
             // Und auch zeigen
             currentOpenPanel.Show();
         }
-
-        // Kommunikation mit dem Animator herstellen
-        animator.SetInteger("cameraIndex", index);
     }
 
     /// <summary>
