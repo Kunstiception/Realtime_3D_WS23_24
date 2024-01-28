@@ -57,7 +57,6 @@ public class DecorationController : MonoBehaviour
         {
             // Jetzige Dekoration entsorgen
             Destroy(currentLoadedDecoration);
-            currentLoadedDecoration = null;
         }
 
         // Dekoration anhand des ausgwählten Idex instanzieren

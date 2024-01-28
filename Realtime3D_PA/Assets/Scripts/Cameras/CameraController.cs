@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         }
         
 
-        if (animator == false)
+        else
         {
             animator.SetBool("Hanging", true);
         }
