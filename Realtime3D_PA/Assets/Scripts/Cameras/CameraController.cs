@@ -9,8 +9,23 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public Animator animator;
 
+    /// <summary>
+    /// Der gerade gewählte Index
+    /// </summary>
     private int currentIndex;
 
+    public Animator buttonHanging;
+
+    public Animator buttonStanding;
+
+    
+    void Start()
+    {
+        buttonStanding.SetBool("active", true);
+
+        buttonHanging.SetBool("active", false);
+    }
+    
     /// <summary>
     /// Menü für einen Index anzeigen
     /// Bereits geöffnetes Menü schließen
@@ -24,7 +39,20 @@ public class CameraController : MonoBehaviour
             animator.SetInteger("CameraIndex", index);
 
             currentIndex = index;
+
+            if (currentIndex == 0)
+            {
+                buttonStanding.SetBool("active", true);
+
+                buttonHanging.SetBool("active", false);
+            }
+
+            else
+            {
+                buttonHanging.SetBool("active", true);
+
+                buttonStanding.SetBool("active", false);
+            }
         }
     }
-    
 }
