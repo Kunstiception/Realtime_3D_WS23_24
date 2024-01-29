@@ -9,24 +9,22 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public Animator animator;
 
+    private int currentIndex;
+
     /// <summary>
     /// Menü für einen Index anzeigen
     /// Bereits geöffnetes Menü schließen
     /// </summary>
-    public void SetCamera()
+    /// <param name="index">Welche Kamera angesteuert werden soll</param>
+    public void SetCamera(int index)
     {
-        if (animator == true)
+        if (index >= 0)
         {
             // Kommunikation mit dem Animator herstellen
-            animator.SetBool("Hanging", false);
-        }
-        
+            animator.SetInteger("CameraIndex", index);
 
-        else
-        {
-            animator.SetBool("Hanging", true);
+            currentIndex = index;
         }
-            
     }
     
 }
