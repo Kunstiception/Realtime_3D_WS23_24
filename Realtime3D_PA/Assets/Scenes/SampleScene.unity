@@ -899,7 +899,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 197030234}
         m_TargetAssemblyTypeName: DecorationControllerStanding, Assembly-CSharp
-        m_MethodName: SetDecoration
+        m_MethodName: SetStandingDecoration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030232}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -1318,10 +1318,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197030233}
-  - component: {fileID: 197030232}
   - component: {fileID: 197030231}
   - component: {fileID: 197030230}
   - component: {fileID: 197030234}
+  - component: {fileID: 197030235}
   m_Layer: 0
   m_Name: Controller_stehend
   m_TagString: Untagged
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d9e4a442913c24bba04cce5ed24191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameController: {fileID: 197030232}
+  frameController: {fileID: 0}
   currentColorIndex: 0
   currentColor: {r: 0, g: 0, b: 0, a: 0}
   ColorSolectionUI: {fileID: 412205841}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72a2f5f657a97248896435f6eab943d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameController: {fileID: 197030232}
+  frameController: {fileID: 0}
   colorController: {fileID: 197030230}
   availableMaterials:
   - {fileID: 2100000, guid: 3293f8691370b8a439bc2cfd3872a6a5, type: 2}
@@ -1372,28 +1372,6 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: f0401a16416d6c945b98b501a6c57be3, type: 2}
   currentMaterial: {fileID: 0}
   currentMaterialIndex: 0
---- !u!114 &197030232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197030229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4787d8c3637a9a34d9d6117b6acfd9ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorController: {fileID: 197030230}
-  materialController: {fileID: 197030231}
-  decorationController: {fileID: 0}
-  framePrefabs:
-  - {fileID: 1772035769817035600, guid: e4f7cbcdc51dc9b4c9281dcf0c456171, type: 3}
-  - {fileID: 2235190356246291770, guid: 322df6fb6bab46b44a4e4af997cf5cfb, type: 3}
-  - {fileID: 4325841109680105923, guid: 06ded8650465ae847b834a071573099d, type: 3}
-  anchorTransform: {fileID: 721512277}
-  frameSelectionUI: {fileID: 1312391333}
-  currentLoadedFrame: {fileID: 0}
 --- !u!4 &197030233
 Transform:
   m_ObjectHideFlags: 0
@@ -1421,14 +1399,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b573a742b805f2e41b9c36175447ab25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameController: {fileID: 197030232}
+  frameControllerStanding: {fileID: 197030235}
   decorations:
   - {fileID: 1024549176165866504, guid: 94dfe8032821b694397e06a950a25f81, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5172787880456054446, guid: 2b0fa33df62fb5e4aac1d0346dd6aa13, type: 3}
+  - {fileID: 8149299733534016173, guid: 641a53c5224f9544da56ce10d2f6bac1, type: 3}
+  - {fileID: 7431585107444456707, guid: 234394b64a4c04e4eb33d331b1b1862e, type: 3}
   currentLoadedDecoration: {fileID: 0}
-  decorationSelectionUI: {fileID: 0}
+  currentDecorationIndex: 0
+  decorationSelectionUI: {fileID: 1582172493}
+--- !u!114 &197030235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197030229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0515a115e94274fbb8e6fbe3a14233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorController: {fileID: 197030230}
+  materialController: {fileID: 197030231}
+  decorationControllerStanding: {fileID: 197030234}
+  framePrefabs:
+  - {fileID: 1772035769817035600, guid: e4f7cbcdc51dc9b4c9281dcf0c456171, type: 3}
+  - {fileID: 2235190356246291770, guid: 322df6fb6bab46b44a4e4af997cf5cfb, type: 3}
+  - {fileID: 4325841109680105923, guid: 06ded8650465ae847b834a071573099d, type: 3}
+  anchorTransform: {fileID: 721512277}
+  frameSelectionUI: {fileID: 1312391333}
+  currentLoadedFrameStanding: {fileID: 0}
 --- !u!1 &220709636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1626,7 @@ MonoBehaviour:
   child: {fileID: 246188036}
   parent: {fileID: 340112921}
   framePosition: {x: 0, y: 0, z: 0}
-  frameController: {fileID: 197030232}
+  frameController: {fileID: 0}
   userImage: {fileID: 0}
 --- !u!1 &260717270
 GameObject:
@@ -2008,38 +2009,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030232}
-        m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
-        m_MethodName: SetFrame
+      - m_Target: {fileID: 197030235}
+        m_TargetAssemblyTypeName: FrameControllerStanding, Assembly-CSharp
+        m_MethodName: SetStandingFrame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 246188044}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4739,38 +4716,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030232}
-        m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
-        m_MethodName: SetFrame
+      - m_Target: {fileID: 197030235}
+        m_TargetAssemblyTypeName: FrameControllerStanding, Assembly-CSharp
+        m_MethodName: SetStandingFrame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 246188044}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5295,38 +5248,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030232}
-        m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
-        m_MethodName: SetFrame
+      - m_Target: {fileID: 197030235}
+        m_TargetAssemblyTypeName: FrameControllerStanding, Assembly-CSharp
+        m_MethodName: SetStandingFrame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 246188044}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6657,7 +6586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930588906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4359908, y: -0.11358328, z: 0.055577986, w: 0.891023}
+  m_LocalRotation: {x: 0.4359908, y: -0.11358335, z: 0.05557802, w: 0.891023}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6841,7 +6770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977347853}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.45208353, y: -0.112556346, z: 0.057629425, w: 0.8829668}
+  m_LocalRotation: {x: 0.4520835, y: -0.11255632, z: 0.057629406, w: 0.8829669}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7650,7 +7579,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 197030234}
         m_TargetAssemblyTypeName: DecorationControllerStanding, Assembly-CSharp
-        m_MethodName: SetDecoration
+        m_MethodName: SetStandingDecoration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8451,7 +8380,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 197030234}
         m_TargetAssemblyTypeName: DecorationControllerStanding, Assembly-CSharp
-        m_MethodName: SetDecoration
+        m_MethodName: SetStandingDecoration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8671,6 +8600,7 @@ MonoBehaviour:
   - {fileID: 6751882365548483994, guid: c7861a19f40b1cc46955e87ac96d3b84, type: 3}
   - {fileID: 1620358650187523776, guid: b6c7abb87bcd13e4cad7c03fa039496b, type: 3}
   currentLoadedDecoration: {fileID: 0}
+  currentDecorationIndex: 0
   decorationSelectionUI: {fileID: 1582172493}
 --- !u!1 &1312391333
 GameObject:
@@ -9082,7 +9012,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 197030234}
         m_TargetAssemblyTypeName: DecorationControllerStanding, Assembly-CSharp
-        m_MethodName: SetDecoration
+        m_MethodName: SetStandingDecoration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9706,34 +9636,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030232}
-        m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
-        m_MethodName: SetFrame
+      - m_Target: {fileID: 197030235}
+        m_TargetAssemblyTypeName: FrameControllerStanding, Assembly-CSharp
+        m_MethodName: SetStandingFrame
         m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 246188044}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10377,7 +10283,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 197030234}
         m_TargetAssemblyTypeName: DecorationControllerStanding, Assembly-CSharp
-        m_MethodName: SetDecoration
+        m_MethodName: SetStandingDecoration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11589,38 +11495,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 191199415}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030232}
-        m_TargetAssemblyTypeName: FrameController, Assembly-CSharp
-        m_MethodName: SetFrame
+      - m_Target: {fileID: 197030235}
+        m_TargetAssemblyTypeName: FrameControllerStanding, Assembly-CSharp
+        m_MethodName: SetStandingFrame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 246188044}
-        m_TargetAssemblyTypeName: ImageUpload, Assembly-CSharp
-        m_MethodName: SetNewParent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

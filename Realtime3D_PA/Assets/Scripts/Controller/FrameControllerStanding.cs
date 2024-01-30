@@ -1,26 +1,24 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Steuert das Laden / Entladen der Innenleben (Inlays)
-/// und stellt eine Methode zum Einf�rben der Innenleben bereit
-/// </summary>
-public class FrameController : MonoBehaviour
+public class FrameControllerStanding : MonoBehaviour
 {
     /// <summary>
     /// Verknüpfung zum ColorController-Skript
     /// </summary>
     public ColorController colorController;
-    
+
     /// <summary>
     /// Verknüpfung zum MaterialController-Skript
     /// </summary>
     public MaterialController materialController;
 
     /// <summary>
-    /// Referenz zum DecorationController-Skript
+    /// Referenz zum DecorationController-Skript für stehende Rahmen
     /// </summary>
-    public DecorationController decorationController;
-    
+    public DecorationControllerStanding decorationControllerStanding;
+
     /// <summary>
     /// Liste der verf�gbaren Innenleben
     /// </summary>
@@ -40,12 +38,12 @@ public class FrameController : MonoBehaviour
     /// <summary>
     /// Referenz zu einem geladenen Innenleben
     /// </summary>
-    public GameObject currentLoadedFrame;
+    public GameObject currentLoadedFrameStanding;
 
     private void Start()
     {
         // Set to inital state
-        SetFrame(0);
+        SetStandingFrame(0);
         materialController.SetMaterial(0);
         colorController.SetColor(0);
     }
@@ -54,12 +52,12 @@ public class FrameController : MonoBehaviour
     /// Lädt einen Rahmen aus dem Array für einen �bergebenen Index    
     /// </summary>
     /// <param name="index">Welcher Rahmen soll geladen werden</param>
-    public void SetFrame(int index)
+    public void SetStandingFrame(int index)
     {
         // Jetzigen ausgewählten Rahmen entsorgen
-        if (currentLoadedFrame != null)
+        if (currentLoadedFrameStanding != null)
         {
-            Destroy(currentLoadedFrame);
+            Destroy(currentLoadedFrameStanding);
         }
 
         // Ist der übergebene Index gültig
@@ -72,7 +70,7 @@ public class FrameController : MonoBehaviour
             loadedFrame.transform.SetParent(anchorTransform.transform, false);
 
             // Geladenes Innenleben speichern
-            currentLoadedFrame = loadedFrame;
+            currentLoadedFrameStanding = loadedFrame;
 
             // TODO: Bereits ausgew�hlte Farbe wiederherstellen
             colorController.SetColor(colorController.currentColorIndex);
@@ -81,17 +79,18 @@ public class FrameController : MonoBehaviour
             materialController.SetMaterial(materialController.currentMaterialIndex);
         }
 
-        if (decorationController.currentLoadedDecoration != null)
-        decorationController.SetDecoration(decorationController.currentDecorationIndex);
+        if (decorationControllerStanding.currentLoadedDecoration != null)
+            decorationControllerStanding.SetStandingDecoration(decorationControllerStanding.currentDecorationIndex);
     }
 
     public void Reset()
     {
-        SetFrame(0);
+        SetStandingFrame(0);
         materialController.SetMaterial(0);
         colorController.SetColor(0);
-        Destroy(decorationController.currentLoadedDecoration);
+        Destroy(decorationControllerStanding.currentLoadedDecoration);
     }
-        
+
 
 }
+

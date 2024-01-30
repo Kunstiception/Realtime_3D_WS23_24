@@ -20,6 +20,11 @@ public class DecorationController : MonoBehaviour
     public GameObject currentLoadedDecoration;
 
     /// <summary>
+    /// Der aktuelle Index
+    /// </summary>
+    public int currentDecorationIndex;
+
+    /// <summary>
     /// Referenz zum Materialauswahl-Men�
     /// </summary>
     public GameObject decorationSelectionUI;
@@ -88,6 +93,9 @@ public class DecorationController : MonoBehaviour
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
+
+            // Seichern des aktuellen Index
+            currentDecorationIndex = index;
         }
 
         // Ist der übergebene Index gültig
@@ -104,6 +112,9 @@ public class DecorationController : MonoBehaviour
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
+
+            // Seichern des aktuellen Index
+            currentDecorationIndex = index;
         }
 
         // Ist der übergebene Index gültig
@@ -120,6 +131,9 @@ public class DecorationController : MonoBehaviour
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
+
+            // Seichern des aktuellen Index
+            currentDecorationIndex = index;
         }
 
         // Ist der übergebene Index gültig
@@ -136,6 +150,9 @@ public class DecorationController : MonoBehaviour
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
+
+            // Seichern des aktuellen Index
+            currentDecorationIndex = index;
         }
     }
 }
