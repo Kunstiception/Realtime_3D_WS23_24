@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecorationController : MonoBehaviour
+public class DecorationControllerStanding : MonoBehaviour
 {
     /// <summary>
     /// Verknüpfung zum FrameController-Skript
@@ -38,6 +38,8 @@ public class DecorationController : MonoBehaviour
     /// Die Position, an der die ausgwählte Dekoration gehängt werden soll
     /// </summary>
     private Vector3 decorationPosition;
+
+    private float zOffSet;
 
     /// <summary>
     /// Ein Vektor zum exakten Platzieren der Dekoration
@@ -81,10 +83,13 @@ public class DecorationController : MonoBehaviour
             framePosition = frameController.currentLoadedFrame.transform.position;
             Debug.Log("framePosition" + framePosition);
 
-            // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+            zOffSet = -framePosition.z + decorationSize.z * 13 + decorationSize.z / 6;
+            
+            // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
-            offSet = new Vector3(frameSize.x/2 - decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
-            Debug.Log("offSet" + offSet);
+            offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, -frameSize.z + decorationSize.z * 13 + decorationSize.z / 10);
+            Debug.Log("Deko" + decorationSize.z);
+            Debug.Log("Rahmen" + frameSize.z);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
@@ -100,7 +105,7 @@ public class DecorationController : MonoBehaviour
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             // An die richtige Position auf dem Rahmen setzen (in diesem Fall am Eck oben rechts)
-            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
+            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
@@ -116,7 +121,7 @@ public class DecorationController : MonoBehaviour
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             // An die richtige Position auf dem Rahmen setzen (in diesem Fall am Eck unten rechts)
-            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, - frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
+            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, -frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
@@ -132,7 +137,7 @@ public class DecorationController : MonoBehaviour
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             //An die richtige Position auf dem Rahmen setzen (in diesem Fall unten links)
-            offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, - frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
+            offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, -frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
