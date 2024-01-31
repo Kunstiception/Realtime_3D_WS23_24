@@ -15,14 +15,24 @@ public class UIController : MonoBehaviour
     /// </summary>
     public CameraController cameraController;
 
+    /// <summary>
+    /// Die Toggles für hangende Rahmen
+    /// </summary>
     public GameObject togglesHanging;
 
+    /// <summary>
+    /// Die Toggles für stehende Rahmen
+    /// </summary>
     public GameObject togglesStanding;
 
     /// <summary>
     /// Welches Menü wird gerade angezeigt
     /// </summary>
     private UIPanel currentOpenPanel;
+
+    private int currentOpenPanelIndex;
+
+    private Animator animator;
 
     private void Start()
     {
@@ -62,17 +72,19 @@ public class UIController : MonoBehaviour
         // Bereits geöffnetes Panel schließen
         if (currentOpenPanel != null) 
         {
+            currentOpenPanel.Hide();
             currentOpenPanel.gameObject.SetActive(false);
             currentOpenPanel = null;
         }
 
-        if(index>=0 && index <=panels.Length - 1) 
+        else if(index>=0 && index <=panels.Length -1) 
         {
             currentOpenPanel = panels[index];
             // Gerade ausgewähltes Panel aktiv schalten
             currentOpenPanel.gameObject.SetActive(true);
             // Und auch zeigen
             currentOpenPanel.Show();
+            currentOpenPanelIndex = index;
         }
     }
 

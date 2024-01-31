@@ -7,12 +7,12 @@ public class FrameControllerStanding : MonoBehaviour
     /// <summary>
     /// Verknüpfung zum ColorController-Skript
     /// </summary>
-    public ColorController colorController;
+    public ColorControllerStanding colorControllerStanding;
 
     /// <summary>
     /// Verknüpfung zum MaterialController-Skript
     /// </summary>
-    public MaterialController materialController;
+    public MaterialControllerStanding materialControllerStanding;
 
     /// <summary>
     /// Referenz zum DecorationController-Skript für stehende Rahmen
@@ -36,7 +36,7 @@ public class FrameControllerStanding : MonoBehaviour
     public GameObject frameSelectionUI;
 
     /// <summary>
-    /// Referenz zu einem geladenen Innenleben
+    /// Referenz zum gerad geladenen Rahmen
     /// </summary>
     public GameObject currentLoadedFrameStanding;
 
@@ -44,8 +44,8 @@ public class FrameControllerStanding : MonoBehaviour
     {
         // Set to inital state
         SetStandingFrame(0);
-        materialController.SetMaterial(0);
-        colorController.SetColor(0);
+        materialControllerStanding.SetMaterial(0);
+        colorControllerStanding.SetColor(0);
     }
 
     /// <summary>
@@ -73,10 +73,10 @@ public class FrameControllerStanding : MonoBehaviour
             currentLoadedFrameStanding = loadedFrame;
 
             // TODO: Bereits ausgew�hlte Farbe wiederherstellen
-            colorController.SetColor(colorController.currentColorIndex);
+            colorControllerStanding.SetColor(colorControllerStanding.currentColorIndex);
 
             // TODO: Bereits ausgew�hlte Material wiederherstellen
-            materialController.SetMaterial(materialController.currentMaterialIndex);
+            materialControllerStanding.SetMaterial(materialControllerStanding.currentMaterialIndex);
         }
 
         if (decorationControllerStanding.currentLoadedDecoration != null)
@@ -86,8 +86,8 @@ public class FrameControllerStanding : MonoBehaviour
     public void Reset()
     {
         SetStandingFrame(0);
-        materialController.SetMaterial(0);
-        colorController.SetColor(0);
+        materialControllerStanding.SetMaterial(0);
+        colorControllerStanding.SetColor(0);
         Destroy(decorationControllerStanding.currentLoadedDecoration);
     }
 

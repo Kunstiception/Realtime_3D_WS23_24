@@ -8,7 +8,9 @@ public class UIPanel : MonoBehaviour
     /// <summary>
     /// Referenz zum Animator, wenn das Menü animiert werden soll
     /// </summary>
-    private Animator animator;
+    public Animator animator;
+
+
 
     void Awake()
     {

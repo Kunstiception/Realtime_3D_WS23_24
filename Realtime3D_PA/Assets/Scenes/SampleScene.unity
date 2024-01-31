@@ -445,18 +445,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030230}
-        m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &34897194
 GameObject:
@@ -1364,7 +1352,7 @@ RectTransform:
   m_GameObject: {fileID: 84480378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75253, y: 0.75253, z: 0.75253}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400110294}
@@ -1373,7 +1361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 705, y: 478}
+  m_AnchoredPosition: {x: -915, y: 501}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84480380
@@ -1781,6 +1769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &154945561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1842,7 +1831,7 @@ Animator:
   m_GameObject: {fileID: 154945559}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2311,10 +2300,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197030233}
-  - component: {fileID: 197030231}
-  - component: {fileID: 197030230}
   - component: {fileID: 197030234}
   - component: {fileID: 197030235}
+  - component: {fileID: 197030237}
+  - component: {fileID: 197030236}
   m_Layer: 0
   m_Name: Controller_stehend
   m_TagString: Untagged
@@ -2322,49 +2311,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &197030230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197030229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d9e4a442913c24bba04cce5ed24191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frameController: {fileID: 0}
-  currentColorIndex: 0
-  currentColor: {r: 0, g: 0, b: 0, a: 0}
-  ColorSolectionUI: {fileID: 412205841}
-  availableColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.1535995, g: 1, b: 0, a: 0}
-  - {r: 0.9995657, g: 1, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0.6013117, a: 0}
---- !u!114 &197030231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197030229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72a2f5f657a97248896435f6eab943d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frameController: {fileID: 0}
-  colorController: {fileID: 197030230}
-  availableMaterials:
-  - {fileID: 2100000, guid: 3293f8691370b8a439bc2cfd3872a6a5, type: 2}
-  - {fileID: 2100000, guid: f0401a16416d6c945b98b501a6c57be3, type: 2}
-  materialSelectionUI: {fileID: 744561650}
-  defaultMaterial: {fileID: 2100000, guid: f0401a16416d6c945b98b501a6c57be3, type: 2}
-  currentMaterial: {fileID: 0}
-  currentMaterialIndex: 0
 --- !u!4 &197030233
 Transform:
   m_ObjectHideFlags: 0
@@ -2413,8 +2359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0515a115e94274fbb8e6fbe3a14233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorController: {fileID: 197030230}
-  materialController: {fileID: 197030231}
+  colorControllerStanding: {fileID: 197030237}
+  materialControllerStanding: {fileID: 0}
   decorationControllerStanding: {fileID: 197030234}
   framePrefabs:
   - {fileID: 1772035769817035600, guid: e4f7cbcdc51dc9b4c9281dcf0c456171, type: 3}
@@ -2423,6 +2369,47 @@ MonoBehaviour:
   anchorTransform: {fileID: 721512277}
   frameSelectionUI: {fileID: 1312391333}
   currentLoadedFrameStanding: {fileID: 0}
+--- !u!114 &197030236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197030229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fc0bc1c8080ff4dbef24d5b42879b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameControllerStanding: {fileID: 197030235}
+  colorControllerStanding: {fileID: 197030237}
+  availableMaterials: []
+  materialSelectionUI: {fileID: 744561650}
+  defaultMaterial: {fileID: 0}
+  currentMaterial: {fileID: 0}
+  currentMaterialIndex: 0
+--- !u!114 &197030237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197030229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0193d6dc6622d43b065086f7d79158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameControllerStanding: {fileID: 197030235}
+  currentColorIndex: 0
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  ColorSolectionUI: {fileID: 412205841}
+  availableColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.1761117, g: 0, b: 1, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.37023258, g: 1, b: 0, a: 0}
+  - {r: 0.98463917, g: 0, b: 1, a: 0}
 --- !u!1 &202563379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &276152217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3162,7 +3150,7 @@ Animator:
   m_GameObject: {fileID: 276152215}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3802,7 +3790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000004132265, y: 0.8639525, z: 0.5035733, w: -0.00000007089496}
+  m_LocalRotation: {x: 0.0000000023739357, y: 0.8639525, z: 0.5035733, w: -0.0000000040728314}
   m_LocalPosition: {x: 0.000000017484556, y: -0.3, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4984,6 +4972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!225 &412205849
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5346,37 +5335,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!1 &430640480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 430640481}
-  m_Layer: 0
-  m_Name: CameraAnchor_stehend_ bottom
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &430640481
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430640480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -0.2, z: 26.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &445189568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,18 +5918,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030230}
-        m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &493330687
 GameObject:
@@ -6084,6 +6030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &509504129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6145,7 +6092,7 @@ Animator:
   m_GameObject: {fileID: 509504127}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6432,7 +6379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543274807}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.48390123, y: -0.11038563, z: -0.061685372, w: 0.86593854}
+  m_LocalRotation: {x: -0.4839012, y: -0.1103856, z: -0.061685354, w: 0.86593854}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6525,18 +6472,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310411}
-        m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030230}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -6710,18 +6645,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310410}
-        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
-        m_MethodName: SetMaterial
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030231}
         m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
         m_MethodName: SetMaterial
         m_Mode: 3
@@ -7022,18 +6945,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030231}
-        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
-        m_MethodName: SetMaterial
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &660511266
 GameObject:
@@ -7168,7 +7079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "H\xE4ngend"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7816,6 +7727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!225 &744561658
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7964,7 +7876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
+  m_AnchoredPosition: {x: 1834, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757505476
@@ -8250,18 +8162,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310410}
-        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
-        m_MethodName: SetMaterial
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030231}
         m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
         m_MethodName: SetMaterial
         m_Mode: 3
@@ -8789,18 +8689,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310411}
-        m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030230}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -10309,7 +10197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977347853}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.45208353, y: -0.112556346, z: 0.057629425, w: 0.8829668}
+  m_LocalRotation: {x: 0.4520835, y: -0.11255632, z: 0.057629406, w: 0.8829669}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11008,18 +10896,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197030231}
-        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
-        m_MethodName: SetMaterial
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1026208384
 GameObject:
@@ -11661,7 +11537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Stehend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11964,37 +11840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161250633}
   m_CullTransparentMesh: 1
---- !u!1 &1169643443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1169643444}
-  m_Layer: 0
-  m_Name: "CameraAnchor_h\xE4ngend_bottom"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1169643444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169643443}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1195884725
 GameObject:
   m_ObjectHideFlags: 0
@@ -12945,7 +12790,7 @@ Animator:
   m_GameObject: {fileID: 1312391333}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13006,6 +12851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!225 &1312391341
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13069,7 +12915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318952097}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.46806943, y: -0.111489505, z: 0.059667245, w: 0.8745976}
+  m_LocalRotation: {x: 0.46806943, y: -0.11148946, z: 0.059667222, w: 0.8745976}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14269,6 +14115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!95 &1440582209
 Animator:
   serializedVersion: 5
@@ -14279,7 +14126,7 @@ Animator:
   m_GameObject: {fileID: 1440582203}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14510,18 +14357,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310410}
-        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
-        m_MethodName: SetMaterial
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030231}
         m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
         m_MethodName: SetMaterial
         m_Mode: 3
@@ -15590,6 +15425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!225 &1582172501
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -16118,6 +15954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &1613887118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16179,7 +16016,7 @@ Animator:
   m_GameObject: {fileID: 1613887116}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ef535aa26a0b6e4eaadb6179612666e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e8b126fdf9329b4fa3fdbc90b7c126f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -17710,6 +17547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &1838510362
 GameObject:
   m_ObjectHideFlags: 0
@@ -18263,37 +18101,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890381625}
   m_CullTransparentMesh: 1
---- !u!1 &1905211038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1905211039}
-  m_Layer: 0
-  m_Name: CameraAnchor_stehend_ top
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1905211039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905211038}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0.2, z: 26.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907260579
 GameObject:
   m_ObjectHideFlags: 0
@@ -18348,6 +18155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea3a4a31b4f684a984f6ba58515322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!225 &1907260582
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18673,7 +18481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928767665}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.499531, y: -0.10924838, z: -0.063677765, w: 0.85701734}
+  m_LocalRotation: {x: -0.499531, y: -0.10924841, z: -0.06367778, w: 0.85701734}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18929,37 +18737,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!1 &1975624106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1975624107}
-  m_Layer: 0
-  m_Name: "CameraAnchor_h\xE4ngend_top"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1975624107
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975624106}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982802853
 GameObject:
   m_ObjectHideFlags: 0
@@ -19541,18 +19318,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1305310411}
-        m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
-        m_MethodName: SetColor
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197030230}
         m_TargetAssemblyTypeName: ColorController, Assembly-CSharp
         m_MethodName: SetColor
         m_Mode: 3
@@ -31108,9 +30873,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1477452697}
-  - {fileID: 1975624107}
   - {fileID: 1504978964}
-  - {fileID: 1169643444}
   - {fileID: 1305310409}
   - {fileID: 851625874}
   - {fileID: 2139769757}
@@ -31118,9 +30881,7 @@ SceneRoots:
   - {fileID: 340112925}
   - {fileID: 721512278}
   - {fileID: 197030233}
-  - {fileID: 1905211039}
   - {fileID: 220709637}
-  - {fileID: 430640481}
   - {fileID: 1017733457}
   - {fileID: 83963100}
   - {fileID: 5329872280397521698}
