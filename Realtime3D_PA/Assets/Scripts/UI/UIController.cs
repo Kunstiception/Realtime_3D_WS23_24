@@ -30,9 +30,17 @@ public class UIController : MonoBehaviour
     /// </summary>
     private UIPanel currentOpenPanel;
 
+    /// <summary>
+    /// Der derzeitige Index
+    /// </summary>
     private int currentOpenPanelIndex;
 
+    /// <summary>
+    /// Referenz zum Animator
+    /// </summary>
     private Animator animator;
+
+    private CanvasGroup currentCanvasGroup;
 
     private void Start()
     {
@@ -41,7 +49,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-
+        // Wenn Kamera auf hängenden Rahmen zeigt, nur dessen Menü anzeigen
         if (cameraController.currentIndex == 0)
         {
             panels[6].gameObject.SetActive(false);
@@ -52,6 +60,7 @@ public class UIController : MonoBehaviour
             togglesStanding.SetActive(false);
         }
 
+        // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
         else if (cameraController.currentIndex == 1)
         {
             panels[3].gameObject.SetActive(false);
@@ -60,6 +69,17 @@ public class UIController : MonoBehaviour
 
             togglesStanding.SetActive(true);
             togglesHanging.SetActive(false);
+        }
+
+        // Durch erneuten Klick auf einen Toggle das Panel erst abschalten, nachdem die Animation durchlaufen wurde, also das Panel nicht mehr interactable ist
+        if (currentCanvasGroup != null)
+        {
+            if (currentCanvasGroup.interactable = false)
+            {
+            currentOpenPanel.gameObject.SetActive(false);
+            }
+
+            
         }
     }
     /// <summary>
@@ -73,7 +93,6 @@ public class UIController : MonoBehaviour
         if (currentOpenPanel != null) 
         {
             currentOpenPanel.Hide();
-            currentOpenPanel.gameObject.SetActive(false);
             currentOpenPanel = null;
         }
 
@@ -84,7 +103,14 @@ public class UIController : MonoBehaviour
             currentOpenPanel.gameObject.SetActive(true);
             // Und auch zeigen
             currentOpenPanel.Show();
+            // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
+        }
+
+        // CanvasGroup des aktuellen Panels speichern
+        if (currentOpenPanel != null)
+        {
+            currentCanvasGroup = currentOpenPanel.GetComponent<CanvasGroup>();
         }
     }
 
