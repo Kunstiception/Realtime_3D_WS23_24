@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// Der gerade gewählte Index
     /// </summary>
-    private int currentIndex;
+    public int currentIndex;
 
     public Animator buttonHanging;
 
@@ -42,16 +42,26 @@ public class CameraController : MonoBehaviour
 
             if (currentIndex == 0)
             {
+                // Aktiviert den Button für stehende Rahmen
                 buttonStanding.SetBool("active", true);
-
+                
+                // Deaktiviert den Button für stehende Rahmen
                 buttonHanging.SetBool("active", false);
+
+                // Speichert den aktuellen Index
+                currentIndex = 0;
             }
 
             else
             {
+                // Aktiviert den Button für hängende Rahmen
                 buttonHanging.SetBool("active", true);
 
+                // Deaktiviert den Button für hängende Rahmen
                 buttonStanding.SetBool("active", false);
+
+                // Speichert den aktuellen Index
+                currentIndex = 1;
             }
         }
     }

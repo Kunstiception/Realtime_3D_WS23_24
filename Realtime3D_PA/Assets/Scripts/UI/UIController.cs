@@ -11,6 +11,15 @@ public class UIController : MonoBehaviour
     public UIPanel[] panels;
 
     /// <summary>
+    /// Referenz zum CameraController-Skript
+    /// </summary>
+    public CameraController cameraController;
+
+    public GameObject togglesHanging;
+
+    public GameObject togglesStanding;
+
+    /// <summary>
     /// Welches Menü wird gerade angezeigt
     /// </summary>
     private UIPanel currentOpenPanel;
@@ -20,6 +29,29 @@ public class UIController : MonoBehaviour
         HideAllPanels();
     }
 
+    private void Update()
+    {
+
+        if (cameraController.currentIndex == 0)
+        {
+            panels[6].gameObject.SetActive(false);
+            panels[7].gameObject.SetActive(false);
+            panels[8].gameObject.SetActive(false);
+
+            togglesHanging.SetActive(true);
+            togglesStanding.SetActive(false);
+        }
+
+        else if (cameraController.currentIndex == 1)
+        {
+            panels[3].gameObject.SetActive(false);
+            panels[4].gameObject.SetActive(false);
+            panels[5].gameObject.SetActive(false);
+
+            togglesStanding.SetActive(true);
+            togglesHanging.SetActive(false);
+        }
+    }
     /// <summary>
     /// Menü für einen Index anzeigen
     /// Bereits geöffnetes Menü schließen
