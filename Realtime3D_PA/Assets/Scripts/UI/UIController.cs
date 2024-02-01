@@ -28,19 +28,27 @@ public class UIController : MonoBehaviour
     /// <summary>
     /// Welches Menü wird gerade angezeigt
     /// </summary>
-    private UIPanel currentOpenPanel;
+    public UIPanel currentOpenPanel;
 
     /// <summary>
     /// Der derzeitige Index
     /// </summary>
-    private int currentOpenPanelIndex;
+    public int currentOpenPanelIndex;
 
     /// <summary>
     /// Referenz zum Animator
     /// </summary>
     private Animator animator;
 
+    /// <summary>
+    /// Die gerade aktive Canvas Group
+    /// </summary>
     private CanvasGroup currentCanvasGroup;
+
+    /// <summary>
+    /// Referenz zum Hide Options-Skript
+    /// </summary>
+    public HideOptions hideOptions;
 
     private void Start()
     {
@@ -76,9 +84,10 @@ public class UIController : MonoBehaviour
         {
             if (currentCanvasGroup.interactable = false)
             {
-            currentOpenPanel.gameObject.SetActive(false);
-            }
+                
+                currentOpenPanel.gameObject.SetActive(false);
 
+            } 
             
         }
     }
@@ -94,6 +103,7 @@ public class UIController : MonoBehaviour
         {
             currentOpenPanel.Hide();
             currentOpenPanel = null;
+            hideOptions.ShowToggles();
         }
 
         else if(index>=0 && index <=panels.Length -1) 
@@ -105,6 +115,7 @@ public class UIController : MonoBehaviour
             currentOpenPanel.Show();
             // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
+            hideOptions.HideToggles();
         }
 
         // CanvasGroup des aktuellen Panels speichern

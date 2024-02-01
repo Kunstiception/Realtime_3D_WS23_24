@@ -1171,7 +1171,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 180
+    Value: 90
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorControllerStanding: {fileID: 197030237}
-  materialControllerStanding: {fileID: 0}
+  materialControllerStanding: {fileID: 197030236}
   decorationControllerStanding: {fileID: 197030234}
   framePrefabs:
   - {fileID: 1772035769817035600, guid: e4f7cbcdc51dc9b4c9281dcf0c456171, type: 3}
@@ -3618,7 +3618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312255532}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10959319, y: -0.12567776, z: 0.013970405, w: 0.9859002}
+  m_LocalRotation: {x: -1e-45, y: -0.79084575, z: -1e-45, w: 0.6120156}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3790,8 +3790,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000004615207, y: 0.9957235, z: -0.09238361, w: -0.000000049743335}
-  m_LocalPosition: {x: -0.20499995, y: 1.1926988, z: -1.6343262}
+  m_LocalRotation: {x: -0.012861911, y: 0.7069899, z: 0.012861914, w: 0.70698977}
+  m_LocalPosition: {x: -0.705, y: 1.089, z: -2.095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5675,7 +5675,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 180
+    Value: 90
     m_SpeedMode: 0
     m_MaxSpeed: 500
     m_AccelTime: 0.1
@@ -5725,7 +5725,7 @@ Transform:
   m_GameObject: {fileID: 464766803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99197274, z: -0, w: -0.1264519}
-  m_LocalPosition: {x: -3.0918112, y: -2.9885144, z: -7.786812}
+  m_LocalPosition: {x: -3.5918112, y: -3.0922134, z: -8.247486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6379,7 +6379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543274807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09164203, y: -0.12591107, z: 0.011682078, w: 0.98773056}
+  m_LocalRotation: {x: -0.0111322515, y: -0.79071486, z: -0.014385079, w: 0.6119144}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6816,7 +6816,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 180
+    Value: 90
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -13896,7 +13896,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 180
+    Value: 90
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -18481,7 +18481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928767665}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07370808, y: -0.1261023, z: 0.009395947, w: 0.9892306}
+  m_LocalRotation: {x: -0.022231437, y: -0.79032373, z: -0.028727429, w: 0.6116117}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20089,6 +20089,7 @@ GameObject:
   - component: {fileID: 2139769755}
   - component: {fileID: 2139769754}
   - component: {fileID: 2139769758}
+  - component: {fileID: 2139769759}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -20211,6 +20212,30 @@ MonoBehaviour:
   cameraController: {fileID: 330585550}
   togglesHanging: {fileID: 626427965}
   togglesStanding: {fileID: 339498513}
+  currentOpenPanel: {fileID: 0}
+  currentOpenPanelIndex: 0
+  hideOptions: {fileID: 2139769759}
+--- !u!114 &2139769759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139769753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e890ad0b59d7d84282e5994c8e363ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIController: {fileID: 2139769758}
+  togglesUpperLeft:
+  - {fileID: 2080538988}
+  - {fileID: 1733640974}
+  - {fileID: 2042064591}
+  - {fileID: 57845479}
+  - {fileID: 374350129}
+  - {fileID: 1854033524}
+  cameraController: {fileID: 330585550}
 --- !u!4 &1087370020015507
 Transform:
   m_ObjectHideFlags: 0
