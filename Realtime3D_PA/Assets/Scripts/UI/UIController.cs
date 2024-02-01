@@ -50,6 +50,8 @@ public class UIController : MonoBehaviour
     /// </summary>
     public HideOptions hideOptions;
 
+    private UIPanel lastOpenPanel;
+
     private void Start()
     {
         HideAllPanels();
@@ -66,6 +68,7 @@ public class UIController : MonoBehaviour
 
             togglesHanging.SetActive(true);
             togglesStanding.SetActive(false);
+           
         }
 
         // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
@@ -77,6 +80,7 @@ public class UIController : MonoBehaviour
 
             togglesStanding.SetActive(true);
             togglesHanging.SetActive(false);
+            
         }
 
         // Durch erneuten Klick auf einen Toggle das Panel erst abschalten, nachdem die Animation durchlaufen wurde, also das Panel nicht mehr interactable ist
@@ -87,6 +91,7 @@ public class UIController : MonoBehaviour
                 
                 currentOpenPanel.gameObject.SetActive(false);
 
+                currentCanvasGroup = null;
             } 
             
         }
@@ -99,15 +104,22 @@ public class UIController : MonoBehaviour
     public void ActivatePanel(int index) 
     {
         // Bereits geöffnetes Panel schließen
-        if (currentOpenPanel != null) 
+        if (currentOpenPanel != null)
         {
-            currentOpenPanel.Hide();
-            currentOpenPanel = null;
-            hideOptions.ShowToggles();
+            if (index == currentOpenPanelIndex) 
+            {
+                currentOpenPanel.Hide();
+                currentOpenPanel = null;
+                hideOptions.ShowToggles();
+            }
         }
+        
+
+        
 
         else if(index>=0 && index <=panels.Length -1) 
         {
+
             currentOpenPanel = panels[index];
             // Gerade ausgewähltes Panel aktiv schalten
             currentOpenPanel.gameObject.SetActive(true);
@@ -116,6 +128,8 @@ public class UIController : MonoBehaviour
             // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
             hideOptions.HideToggles();
+
+            lastOpenPanel = currentOpenPanel;
         }
 
         // CanvasGroup des aktuellen Panels speichern
@@ -132,7 +146,7 @@ public class UIController : MonoBehaviour
     {
         for (int i = 0; i < panels.Length; i++)
         {
-            // Inaktivschaltung, da sich sonst die überlappenden Toggles gegenseitig blockieren
+            // Inaktivschaltung aller Panels
             panels[i].gameObject.SetActive(false);
         }
     }

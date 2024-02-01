@@ -79,7 +79,7 @@ public class FrameControllerStanding : MonoBehaviour
             materialControllerStanding.SetMaterial(materialControllerStanding.currentMaterialIndex);
         }
 
-        if (decorationControllerStanding.currentLoadedDecoration != null)
+        if (decorationControllerStanding.currentLoadedDecorationStanding != null)
             decorationControllerStanding.SetStandingDecoration(decorationControllerStanding.currentDecorationIndex);
     }
 
@@ -88,7 +88,7 @@ public class FrameControllerStanding : MonoBehaviour
         SetStandingFrame(0);
         materialControllerStanding.SetMaterial(0);
         colorControllerStanding.SetColor(0);
-        Destroy(decorationControllerStanding.currentLoadedDecoration);
+        Destroy(decorationControllerStanding.currentLoadedDecorationStanding);
     }
 
 

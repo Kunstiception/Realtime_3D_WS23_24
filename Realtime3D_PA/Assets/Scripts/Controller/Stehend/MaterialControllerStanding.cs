@@ -57,13 +57,14 @@ public class MaterialControllerStanding : MonoBehaviour
     /// <param name="index">Index des neuen Material</param>
     public void SetMaterial(int index)
     {
+        //if (index >=0 && index <= availableMaterials.Length -1)
 
         // Suche nach Renderer-Komponente des akutuellen Rahmens
         Renderer renderer = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>();
         // Das Material ist gleich dem derzeit angewählten Material
         currentMaterial = availableMaterials[index];
         // Material setzen
-        renderer.material = currentMaterial;
+        GetComponent<Renderer>().material = currentMaterial;
         // Index merken
         currentMaterialIndex = index;
 

@@ -54,6 +54,11 @@ public class DecorationController : MonoBehaviour
     /// </summary>
     private Vector3 decorationSize;
 
+    public void Start()
+    {
+        currentLoadedDecoration = null;
+    }
+    
     // Instanziert übden Index die ausgewählte Dekoration und platziert sie an der richtigen Stelle am Rahmen
     public void SetDecoration(int index)
     {
@@ -61,7 +66,7 @@ public class DecorationController : MonoBehaviour
         if (currentLoadedDecoration != null)
         {
             // Jetzige Dekoration entsorgen
-            Destroy(currentLoadedDecoration);
+            Destroy(currentLoadedDecoration);   
         }
 
         // Dekoration anhand des ausgwählten Idex instanzieren

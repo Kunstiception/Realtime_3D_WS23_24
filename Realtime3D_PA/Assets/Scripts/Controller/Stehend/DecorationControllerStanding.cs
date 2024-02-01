@@ -17,7 +17,7 @@ public class DecorationControllerStanding : MonoBehaviour
     /// <summary>
     /// Die gerade geladene Dekoration
     /// </summary>
-    public GameObject currentLoadedDecoration;
+    public GameObject currentLoadedDecorationStanding;
 
     /// <summary>
     /// Der aktuelle Index
@@ -56,28 +56,32 @@ public class DecorationControllerStanding : MonoBehaviour
     /// </summary>
     private Vector3 decorationSize;
 
+    //private GameObject loadedDecorationStanding;
+
     // Instanziert übden Index die ausgewählte Dekoration und platziert sie an der richtigen Stelle am Rahmen
     public void SetStandingDecoration(int index)
     {
-        // Vorherige Dekoration entfernen
-        if (currentLoadedDecoration != null)
-        {
-            // Jetzige Dekoration entsorgen
-            Destroy(currentLoadedDecoration);
-        }
-
-        // Dekoration anhand des ausgwählten Idex instanzieren
-        GameObject loadedDecoration = Instantiate(decorations[index]);
+        
+        // Dekoration anhand des ausgwählten Index instanzieren
+        //GameObject loadedDecorationStanding = Instantiate(decorations[index]);
 
         // Die geladene Deko wird in der neuen Variable gespeichert
-        currentLoadedDecoration = loadedDecoration;
+        currentLoadedDecorationStanding = Instantiate(decorations[index]);
 
         // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
         frameSize = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>().bounds.size;
         Debug.Log("frameSize" + frameSize);
 
         // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
-        decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
+        decorationSize = currentLoadedDecorationStanding.GetComponent<Renderer>().bounds.size;
+
+        // Vorherige Dekoration entfernen
+        if (currentLoadedDecorationStanding != null)
+        {
+            // Jetzige Dekoration entsorgen
+            Destroy(currentLoadedDecorationStanding);
+        }
+
 
         // Ist der übergebene Index gültig
         if (index == 0)
@@ -97,7 +101,7 @@ public class DecorationControllerStanding : MonoBehaviour
             Debug.Log("Rahmen" + frameSize.z);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
+            currentLoadedDecorationStanding.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
@@ -116,7 +120,7 @@ public class DecorationControllerStanding : MonoBehaviour
             offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
+            currentLoadedDecorationStanding.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
@@ -135,7 +139,7 @@ public class DecorationControllerStanding : MonoBehaviour
             offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, -frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
+            currentLoadedDecorationStanding.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
@@ -154,7 +158,7 @@ public class DecorationControllerStanding : MonoBehaviour
             offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, -frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 9 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
+            currentLoadedDecorationStanding.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
