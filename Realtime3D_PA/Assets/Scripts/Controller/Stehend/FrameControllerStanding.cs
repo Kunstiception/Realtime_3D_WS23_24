@@ -40,6 +40,8 @@ public class FrameControllerStanding : MonoBehaviour
     /// </summary>
     public GameObject currentLoadedFrameStanding;
 
+    private Vector3 transformPosition;
+
     private void Start()
     {
         // Set to inital state
@@ -67,7 +69,7 @@ public class FrameControllerStanding : MonoBehaviour
             GameObject loadedFrame = Instantiate(framePrefabs[index]);
 
             // Geladenes Prefab unter das angegebene GameObject hängen
-            loadedFrame.transform.SetParent(anchorTransform.transform, false);
+            loadedFrame.transform.position = (anchorTransform.transform.position);
 
             // Geladenes Innenleben speichern
             currentLoadedFrameStanding = loadedFrame;
