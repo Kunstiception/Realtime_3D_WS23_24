@@ -22,7 +22,7 @@ public class FrameControllerStanding : MonoBehaviour
     /// <summary>
     /// Liste der verf�gbaren Innenleben
     /// </summary>
-    public GameObject[] framePrefabs;
+    public GameObject[] framePrefabsStanding;
 
     /// <summary>
     /// Defiert unter welches GameObject das geladene
@@ -63,10 +63,10 @@ public class FrameControllerStanding : MonoBehaviour
         }
 
         // Ist der übergebene Index gültig
-        if (index >= 0 && index <= framePrefabs.Length - 1)
+        if (index >= 0 && index <= framePrefabsStanding.Length - 1)
         {
             // Prefab laden
-            GameObject loadedFrame = Instantiate(framePrefabs[index]);
+            GameObject loadedFrame = Instantiate(framePrefabsStanding[index]);
 
             // Geladenes Prefab unter das angegebene GameObject hängen
             loadedFrame.transform.position = (anchorTransform.transform.position);

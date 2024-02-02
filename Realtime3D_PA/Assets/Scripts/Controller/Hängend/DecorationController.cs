@@ -77,7 +77,6 @@ public class DecorationController : MonoBehaviour
 
         // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
         frameSize = frameController.currentLoadedFrame.GetComponent<Renderer>().bounds.size;
-        Debug.Log("frameSize" + frameSize);
 
         // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
         decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
@@ -89,12 +88,10 @@ public class DecorationController : MonoBehaviour
 
             // die Position des aktuellen Rahmens als Vektor 3
             framePosition = frameController.currentLoadedFrame.transform.position;
-            Debug.Log("framePosition" + framePosition);
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
             offSet = new Vector3(frameSize.x/2 - decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
-            Debug.Log("offSet" + offSet);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
