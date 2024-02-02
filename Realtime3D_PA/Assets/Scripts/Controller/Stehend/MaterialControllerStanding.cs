@@ -64,7 +64,7 @@ public class MaterialControllerStanding : MonoBehaviour
         // Das Material ist gleich dem derzeit angewählten Material
         currentMaterial = availableMaterials[index];
         // Material setzen
-        GetComponent<Renderer>().material = currentMaterial;
+        renderer.material = currentMaterial;
         // Index merken
         currentMaterialIndex = index;
 
