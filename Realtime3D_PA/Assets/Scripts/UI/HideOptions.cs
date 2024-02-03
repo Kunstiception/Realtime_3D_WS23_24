@@ -38,7 +38,7 @@ public class HideOptions : MonoBehaviour
     public void ShowToggles()
     {
 
-        
+        uIController.HideAllPanels();
        
         for (int i = 0; i <= togglesUpperLeft.Length -1; i++)
 

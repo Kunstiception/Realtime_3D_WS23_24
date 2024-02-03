@@ -14,8 +14,14 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public int currentIndex;
 
+    /// <summary>
+    /// Referenz zum Animator des Buttons zur Anbringung der hängenden Rahmen
+    /// </summary>
     public Animator buttonHanging;
 
+    /// <summary>
+    /// Referenz zum Animator des Buttons zur Anbringung der stehenden Rahmen
+    /// </summary>
     public Animator buttonStanding;
 
     
@@ -23,7 +29,7 @@ public class CameraController : MonoBehaviour
     {
         buttonStanding.SetBool("active", true);
 
-        buttonHanging.SetBool("active", false);
+        buttonHanging.SetBool("active", true);
     }
     
     /// <summary>

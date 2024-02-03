@@ -42,6 +42,11 @@ public class FrameController : MonoBehaviour
     /// </summary>
     public GameObject currentLoadedFrame;
 
+    /// <summary>
+    /// Der derzeitige Index
+    /// </summary>
+    private int currentIndex;
+
     private void Start()
     {
         // Set to inital state
@@ -65,6 +70,9 @@ public class FrameController : MonoBehaviour
         // Ist der übergebene Index gültig
         if (index >= 0 && index <= framePrefabs.Length - 1)
         {
+            // derzeitigen Index merken
+            currentIndex = index;
+
             // Prefab laden
             GameObject loadedFrame = Instantiate(framePrefabs[index]);
 
@@ -87,7 +95,7 @@ public class FrameController : MonoBehaviour
 
     public void Reset()
     {
-        SetFrame(0);
+        SetFrame(currentIndex);
         materialController.SetMaterial(0);
         colorController.SetColor(0);
         Destroy(decorationController.currentLoadedDecoration);

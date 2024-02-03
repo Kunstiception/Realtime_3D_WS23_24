@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         HideAllPanels();
+
     }
 
     private void Update()
@@ -62,25 +63,24 @@ public class UIController : MonoBehaviour
         // Wenn Kamera auf hängenden Rahmen zeigt, nur dessen Menü anzeigen
         if (cameraController.currentIndex == 0)
         {
+            togglesHanging.SetActive(true);
+            togglesStanding.SetActive(false);
+
             panels[6].gameObject.SetActive(false);
             panels[7].gameObject.SetActive(false);
             panels[8].gameObject.SetActive(false);
 
-            togglesHanging.SetActive(true);
-            togglesStanding.SetActive(false);
-           
         }
 
         // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
         else if (cameraController.currentIndex == 1)
         {
+            togglesStanding.SetActive(true);
+            togglesHanging.SetActive(false); 
+            
             panels[3].gameObject.SetActive(false);
             panels[4].gameObject.SetActive(false);
             panels[5].gameObject.SetActive(false);
-
-            togglesStanding.SetActive(true);
-            togglesHanging.SetActive(false);
-            
         }
 
         // Durch erneuten Klick auf einen Toggle das Panel erst abschalten, nachdem die Animation durchlaufen wurde, also das Panel nicht mehr interactable ist
@@ -88,12 +88,12 @@ public class UIController : MonoBehaviour
         {
             if (currentCanvasGroup.interactable = false)
             {
-                
+
                 currentOpenPanel.gameObject.SetActive(false);
 
                 currentCanvasGroup = null;
-            } 
-            
+            }
+
         }
     }
     /// <summary>
@@ -101,23 +101,23 @@ public class UIController : MonoBehaviour
     /// Bereits geöffnetes Menü schließen
     /// </summary>
     /// <param name="index"></param>
-    public void ActivatePanel(int index) 
+    public void ActivatePanel(int index)
     {
         // Bereits geöffnetes Panel schließen
         if (currentOpenPanel != null)
         {
-            if (index == currentOpenPanelIndex) 
+            if (index == currentOpenPanelIndex)
             {
                 currentOpenPanel.Hide();
                 currentOpenPanel = null;
                 hideOptions.ShowToggles();
             }
         }
-        
 
-        
 
-        else if(index>=0 && index <=panels.Length -1) 
+
+
+        else if (index >= 0 && index <= panels.Length - 1)
         {
 
             currentOpenPanel = panels[index];
@@ -142,7 +142,7 @@ public class UIController : MonoBehaviour
     /// <summary>
     /// Hide all panels (e.g. on start of the application)
     /// </summary>
-    private void HideAllPanels() 
+    public void HideAllPanels()
     {
         for (int i = 0; i < panels.Length; i++)
         {
@@ -150,5 +150,4 @@ public class UIController : MonoBehaviour
             panels[i].gameObject.SetActive(false);
         }
     }
-
 }
