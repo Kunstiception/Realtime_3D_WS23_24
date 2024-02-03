@@ -14,25 +14,24 @@ public class HideOptions : MonoBehaviour
     /// </summary>
     public GameObject[] togglesUpperLeft;
 
+    /// <summary>
+    /// Referenz zum Camera-Controller
+    /// </summary>
     public CameraController cameraController;
+
     
     public void HideToggles()
     {
-        if (uIController.currentOpenPanelIndex == 3 | uIController.currentOpenPanelIndex == 6)
+        if (cameraController.currentIndex < 2)
         {
-            togglesUpperLeft[1].SetActive(false);
-            togglesUpperLeft[2].SetActive(false);
-            togglesUpperLeft[4].SetActive(false);
-            togglesUpperLeft[5].SetActive(false);
+                for (int i = uIController.currentOpenPanelIndex -2; i <= togglesUpperLeft.Length -1; i++)
+                {
+                    togglesUpperLeft[i].SetActive(false);
+                }
         }
+        
 
-        if (uIController.currentOpenPanelIndex == 4 | uIController.currentOpenPanelIndex == 7)
-        {
-
-            togglesUpperLeft[2].SetActive(false);
-
-            togglesUpperLeft[5].SetActive(false);
-        }
+        
     }
 
     public void ShowToggles()

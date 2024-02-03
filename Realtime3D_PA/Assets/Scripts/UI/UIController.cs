@@ -50,8 +50,6 @@ public class UIController : MonoBehaviour
     /// </summary>
     public HideOptions hideOptions;
 
-    private UIPanel lastOpenPanel;
-
     private void Start()
     {
         HideAllPanels();
@@ -65,22 +63,13 @@ public class UIController : MonoBehaviour
         {
             togglesHanging.SetActive(true);
             togglesStanding.SetActive(false);
-
-            panels[6].gameObject.SetActive(false);
-            panels[7].gameObject.SetActive(false);
-            panels[8].gameObject.SetActive(false);
-
         }
 
         // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
         else if (cameraController.currentIndex == 1)
         {
             togglesStanding.SetActive(true);
-            togglesHanging.SetActive(false); 
-            
-            panels[3].gameObject.SetActive(false);
-            panels[4].gameObject.SetActive(false);
-            panels[5].gameObject.SetActive(false);
+            togglesHanging.SetActive(false);
         }
 
         // Durch erneuten Klick auf einen Toggle das Panel erst abschalten, nachdem die Animation durchlaufen wurde, also das Panel nicht mehr interactable ist
@@ -128,8 +117,6 @@ public class UIController : MonoBehaviour
             // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
             hideOptions.HideToggles();
-
-            lastOpenPanel = currentOpenPanel;
         }
 
         // CanvasGroup des aktuellen Panels speichern
