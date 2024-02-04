@@ -22,7 +22,7 @@ public class HideOptions : MonoBehaviour
     
     public void HideToggles()
     {
-        if (cameraController.currentIndex < 2)
+        if (cameraController.currentIndex < 2 && uIController.currentOpenPanelIndex > 2)
         {
                 for (int i = uIController.currentOpenPanelIndex -2; i <= togglesUpperLeft.Length -1; i++)
                 {
