@@ -93,12 +93,44 @@ public class DecorationControllerStanding : MonoBehaviour
             framePosition = frameControllerStanding.currentLoadedFrameStanding.transform.position;
             Debug.Log("framePosition" + framePosition);
 
-            //zOffSet = -framePosition.z + decorationSize.z * 13 + decorationSize.z / 6;
 
-            // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
-            //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
-            offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y - decorationSize.y / 2, - frameSize.z + frameSize.z / 3 + decorationSize.z / 4);
-            Debug.Log("Offset" + offSet);
+            if (frameSize.y < 0.12)
+            {
+                // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+                //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
+                offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y - decorationSize.y / 2, -frameSize.z + frameSize.z / 3 + decorationSize.z / 2);
+                Debug.Log("Höhe" + frameSize.y);
+                Debug.Log("klein");
+            }
+
+            if (frameSize.y > 0.12 && frameSize.y < 0.16)
+            {
+                // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+                //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
+                offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y - decorationSize.y / 2, - frameSize.z + frameSize.z / 3 + decorationSize.z / 3);
+                Debug.Log("Höhe" + frameSize.y);
+                Debug.Log("mitte");
+            }
+
+            if (frameSize.y > 0.16 && frameSize.y < 0.18)
+            {
+                // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+                //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
+                offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y - decorationSize.y / 2, -frameSize.z + frameSize.z / 3 + decorationSize.z / 8);
+                Debug.Log("Höhe" + frameSize.y);
+                Debug.Log("größer");
+            }
+
+            if (frameSize.y > 0.18)
+            {
+                // Achsenposition holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
+                //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
+                offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, frameSize.y - decorationSize.y / 2, -frameSize.z + frameSize.z / 3 - decorationSize.z / 4);
+                Debug.Log("Höhe" + frameSize.y);
+                Debug.Log("riesig");
+            }
+                
+
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecorationStanding.transform.position = framePosition + offSet;

@@ -91,13 +91,15 @@ public class DecorationController : MonoBehaviour
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             //An die richtige Position auf dem Rahmen setzen (in diesem Fall oben links)
-            offSet = new Vector3(frameSize.x/2 - decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
+            offSet = new Vector3(-frameSize.x/2 - decorationSize.x, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 - decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
+
+            Debug.Log("oben links");
         }
 
 
@@ -111,13 +113,14 @@ public class DecorationController : MonoBehaviour
 
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             // An die richtige Position auf dem Rahmen setzen (in diesem Fall am Eck unten rechts)
-            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, - frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
+            offSet = new Vector3(-frameSize.x / 2 - decorationSize.x, - frameSize.y / 2 + decorationSize.y / 2, - frameSize.z / 2 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
 
             // Seichern des aktuellen Index
             currentDecorationIndex = index;
+            Debug.Log("unten rechts");
         }
     }
 }
