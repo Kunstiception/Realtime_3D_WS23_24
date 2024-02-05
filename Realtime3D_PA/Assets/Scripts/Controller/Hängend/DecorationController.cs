@@ -82,7 +82,7 @@ public class DecorationController : MonoBehaviour
         decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
 
         // Ist der übergebene Index gültig
-        if (index == 0)
+        if (index % 2 == 0)
         {
 
 
@@ -100,27 +100,9 @@ public class DecorationController : MonoBehaviour
             currentDecorationIndex = index;
         }
 
-        // Ist der übergebene Index gültig
-        if (index == 1)
-        {
-
-
-            // die Position des aktuellen Rahmens als Vektor 3
-            framePosition = frameController.currentLoadedFrame.transform.position;
-
-            // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
-            // An die richtige Position auf dem Rahmen setzen (in diesem Fall am Eck oben rechts)
-            offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, frameSize.y / 2 - decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
-
-            // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
-
-            // Seichern des aktuellen Index
-            currentDecorationIndex = index;
-        }
 
         // Ist der übergebene Index gültig
-        if (index == 2)
+        if (index % 2 == 1)
         {
 
 
@@ -130,25 +112,6 @@ public class DecorationController : MonoBehaviour
             // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
             // An die richtige Position auf dem Rahmen setzen (in diesem Fall am Eck unten rechts)
             offSet = new Vector3(-frameSize.x / 2 + decorationSize.x / 2, - frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
-
-            // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
-            currentLoadedDecoration.transform.position = framePosition + offSet;
-
-            // Seichern des aktuellen Index
-            currentDecorationIndex = index;
-        }
-
-        // Ist der übergebene Index gültig
-        if (index == 3)
-        {
-
-
-            // die Position des aktuellen Rahmens als Vektor 3
-            framePosition = frameController.currentLoadedFrame.transform.position;
-
-            // Y holen gefunden auf: https://docs.unity3d.com/ScriptReference/Vector3.html
-            //An die richtige Position auf dem Rahmen setzen (in diesem Fall unten links)
-            offSet = new Vector3(frameSize.x / 2 - decorationSize.x / 2, - frameSize.y / 2 + decorationSize.y / 2, frameSize.z / 2 + decorationSize.z / 2);
 
             // Von der Rahmenmitte aus wird mit dem Offset die richtige Position für die Dekoration ermittelt
             currentLoadedDecoration.transform.position = framePosition + offSet;
