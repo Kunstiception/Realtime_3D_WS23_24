@@ -32,7 +32,7 @@ public class DecorationController : MonoBehaviour
     /// <summary>
     /// Die Maße des gerade geladenen Rahmens
     /// </summary>
-    private Vector3 frameSize;
+    public Vector3 frameSize;
 
     /// <summary>
     /// Die Position des gerade geladenen Rahmens

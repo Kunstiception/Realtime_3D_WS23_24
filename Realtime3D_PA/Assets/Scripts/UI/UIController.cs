@@ -50,6 +50,10 @@ public class UIController : MonoBehaviour
     /// </summary>
     public HideOptions hideOptions;
 
+    public DecorationController decorationController;
+
+    public FrameControllerStanding frameControllerStanding;
+
     private void Start()
     {
         HideAllPanels();
@@ -59,14 +63,20 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         // Wenn Kamera auf hängenden Rahmen zeigt, nur dessen Menü anzeigen
-        if (cameraController.currentIndex == 0)
+        if (cameraController.currentIndex >= 0 && cameraController.currentIndex < 2)
         {
             togglesHanging.SetActive(true);
             togglesStanding.SetActive(false);
+
+            if (decorationController.frameSize.y > 0.20)
+            {
+                cameraController.SetCamera(1);
+                Debug.Log(decorationController.frameSize.y);
+            }
         }
 
         // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
-        else if (cameraController.currentIndex == 1)
+        else if (cameraController.currentIndex == 1 | cameraController.currentIndex == 2)
         {
             togglesStanding.SetActive(true);
             togglesHanging.SetActive(false);
