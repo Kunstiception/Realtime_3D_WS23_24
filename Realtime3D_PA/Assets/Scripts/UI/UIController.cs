@@ -63,8 +63,15 @@ public class UIController : MonoBehaviour
     
     public void Update()
     {
+       
         if (cameraController.currentIndex > -1 && cameraController.currentIndex < 2)
         {
+            // Aktiviert den Button für hängende Rahmen
+            cameraController.buttonHanging.SetBool("active", false);
+
+            // Deaktiviert den Button für hängende Rahmen
+            cameraController.buttonStanding.SetBool("active", true);
+
             togglesHanging.SetActive(true);
             togglesStanding.SetActive(false);
             middlePanels.SetActive(true);
@@ -72,6 +79,12 @@ public class UIController : MonoBehaviour
 
         if (cameraController.currentIndex >= 2 && cameraController.currentIndex < 4)
         {
+            // Aktiviert den Button für hängende Rahmen
+            cameraController.buttonHanging.SetBool("active", true);
+
+            // Deaktiviert den Button für hängende Rahmen
+            cameraController.buttonStanding.SetBool("active", false);
+
             togglesHanging.SetActive(false);
             togglesStanding.SetActive(true);
             middlePanels.SetActive(true);
@@ -83,6 +96,7 @@ public class UIController : MonoBehaviour
             togglesStanding.SetActive(false);
             middlePanels.SetActive(false);
         }
+        
             
     }
 

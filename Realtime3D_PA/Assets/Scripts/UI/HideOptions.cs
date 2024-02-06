@@ -19,6 +19,8 @@ public class HideOptions : MonoBehaviour
     /// </summary>
     public CameraController cameraController;
 
+    public bool openedPanel = false;
+
     // versteckt alle Toggles unterhalb des gedrückten Toggles
     public void HideToggles()
     {
@@ -28,13 +30,13 @@ public class HideOptions : MonoBehaviour
                 {
                     togglesUpperLeft[i].SetActive(false);
                 }
-        }   
+        }
     }
 
     // zeigt die Toggles wieder an
     public void ShowToggles()
     {
-
+       
         uIController.HideAllPanels();
 
        

@@ -49,6 +49,8 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private float frameHeightStanding;
 
+    public HideOptions hideOptions;
+
 
     public void Start()
     {
@@ -70,29 +72,19 @@ public class CameraController : MonoBehaviour
         {
             // Kommunikation mit dem Animator herstellen
             animator.SetInteger("CameraIndex", index);
-
+            
             currentIndex = index;
 
-            if (currentIndex >= 0 && currentIndex < 2)
+            Debug.Log(currentIndex);
+
+            Debug.Log(uIController.currentOpenPanel);
+
+            if (index == 0 | index == 2)
             {
-                // Aktiviert den Button für stehende Rahmen
-                buttonStanding.SetBool("active", true);
-
-
-                // Deaktiviert den Button für stehende Rahmen
-                buttonHanging.SetBool("active", false);
-
+                uIController.currentOpenPanel = null;
 
             }
 
-            if (currentIndex >= 2 && currentIndex < 4)
-            {
-                // Aktiviert den Button für hängende Rahmen
-                buttonHanging.SetBool("active", true);
-
-                // Deaktiviert den Button für hängende Rahmen
-                buttonStanding.SetBool("active", false);
-            }
         }
     }
 
@@ -106,7 +98,6 @@ public class CameraController : MonoBehaviour
 
             if (frameHeight > 0.20)
             {
-
                 SetCamera(1);
             }
             if (frameHeight <= 0.20)
