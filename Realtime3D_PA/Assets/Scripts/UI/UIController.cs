@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Cinemachine;
 
 /// <summary>
 /// Steuert die Anzeige der einzelnen Menüs zum Konfigurieren
@@ -50,51 +51,15 @@ public class UIController : MonoBehaviour
     /// </summary>
     public HideOptions hideOptions;
 
-    public DecorationController decorationController;
 
-    public FrameControllerStanding frameControllerStanding;
-
-    private void Start()
+    void Start()
     {
         HideAllPanels();
-
     }
 
-    private void Update()
-    {
-        // Wenn Kamera auf hängenden Rahmen zeigt, nur dessen Menü anzeigen
-        if (cameraController.currentIndex >= 0 && cameraController.currentIndex < 2)
-        {
-            togglesHanging.SetActive(true);
-            togglesStanding.SetActive(false);
+    
 
-            if (decorationController.frameSize.y > 0.20)
-            {
-                cameraController.SetCamera(1);
-                Debug.Log(decorationController.frameSize.y);
-            }
-        }
 
-        // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
-        else if (cameraController.currentIndex == 1 | cameraController.currentIndex == 2)
-        {
-            togglesStanding.SetActive(true);
-            togglesHanging.SetActive(false);
-        }
-
-        // Durch erneuten Klick auf einen Toggle das Panel erst abschalten, nachdem die Animation durchlaufen wurde, also das Panel nicht mehr interactable ist
-        if (currentCanvasGroup != null)
-        {
-            if (currentCanvasGroup.interactable = false)
-            {
-
-                currentOpenPanel.gameObject.SetActive(false);
-
-                currentCanvasGroup = null;
-            }
-
-        }
-    }
     /// <summary>
     /// Menü für einen Index anzeigen
     /// Bereits geöffnetes Menü schließen

@@ -32,7 +32,7 @@ public class DecorationControllerStanding : MonoBehaviour
     /// <summary>
     /// Die Maße des gerade geladenen Rahmens
     /// </summary>
-    private Vector3 frameSize;
+    public Vector3 frameSize;
 
     /// <summary>
     /// Die Position des gerade geladenen Rahmens
@@ -43,8 +43,6 @@ public class DecorationControllerStanding : MonoBehaviour
     /// Die Position, an der die ausgwählte Dekoration gehängt werden soll
     /// </summary>
     private Vector3 decorationPosition;
-
-    private float zOffSet;
 
     /// <summary>
     /// Ein Vektor zum exakten Platzieren der Dekoration
