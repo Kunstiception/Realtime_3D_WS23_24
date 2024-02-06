@@ -23,16 +23,30 @@ public class CameraController : MonoBehaviour
     /// Referenz zum Animator des Buttons zur Anbringung der stehenden Rahmen
     /// </summary>
     public Animator buttonStanding;
-
+    
+    /// <summary>
+    /// Referenz zum UIController
+    /// </summary>
     public UIController uIController;
 
-
+    /// <summary>
+    /// Referenz zum FrameController für hängende Rahmen
+    /// </summary>
     public FrameController frameController;
 
+    /// <summary>
+    /// Referenz zum FrameController für stehende Rahmen
+    /// </summary>
     public FrameControllerStanding frameControllerStanding;
 
+    /// <summary>
+    /// Die Höhe des aktuellen hängenden Rahmen
+    /// </summary>
     private float frameHeight;
 
+    /// <summary>
+    /// Die Höhe des aktuellen stehenden Rahmen
+    /// </summary>
     private float frameHeightStanding;
 
 
@@ -59,7 +73,7 @@ public class CameraController : MonoBehaviour
 
             currentIndex = index;
 
-            if (currentIndex >= 0 && currentIndex > 2)
+            if (currentIndex >= 0 && currentIndex < 2)
             {
                 // Aktiviert den Button für stehende Rahmen
                 buttonStanding.SetBool("active", true);
@@ -68,21 +82,16 @@ public class CameraController : MonoBehaviour
                 // Deaktiviert den Button für stehende Rahmen
                 buttonHanging.SetBool("active", false);
 
-                uIController.togglesHanging.SetActive(true);
-                uIController.togglesStanding.SetActive(false);
+
             }
 
-            if (currentIndex < 0 && currentIndex > 2)
+            if (currentIndex >= 2 && currentIndex < 4)
             {
                 // Aktiviert den Button für hängende Rahmen
                 buttonHanging.SetBool("active", true);
 
                 // Deaktiviert den Button für hängende Rahmen
                 buttonStanding.SetBool("active", false);
-
-                uIController.togglesHanging.SetActive(false);
-                uIController.togglesStanding.SetActive(true);
-
             }
         }
     }
@@ -107,7 +116,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
-        if (currentIndex >= 3 && currentIndex < 5)
+        if (currentIndex >= 2 && currentIndex < 4)
         {
             // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
             frameHeightStanding = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>().bounds.size.y;

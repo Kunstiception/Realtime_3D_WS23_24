@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using Cinemachine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Steuert die Anzeige der einzelnen Menüs zum Konfigurieren
@@ -51,6 +52,8 @@ public class UIController : MonoBehaviour
     /// </summary>
     public HideOptions hideOptions;
 
+    public GameObject middlePanels;
+
 
     void Start()
     {
@@ -58,7 +61,30 @@ public class UIController : MonoBehaviour
     }
 
     
+    public void Update()
+    {
+        if (cameraController.currentIndex > -1 && cameraController.currentIndex < 2)
+        {
+            togglesHanging.SetActive(true);
+            togglesStanding.SetActive(false);
+            middlePanels.SetActive(true);
+        }
 
+        if (cameraController.currentIndex >= 2 && cameraController.currentIndex < 4)
+        {
+            togglesHanging.SetActive(false);
+            togglesStanding.SetActive(true);
+            middlePanels.SetActive(true);
+        }
+
+        if (cameraController.currentIndex == -1)
+        {
+            togglesHanging.SetActive(false);
+            togglesStanding.SetActive(false);
+            middlePanels.SetActive(false);
+        }
+            
+    }
 
     /// <summary>
     /// Menü für einen Index anzeigen
@@ -78,9 +104,6 @@ public class UIController : MonoBehaviour
             }
         }
 
-
-
-
         else if (index >= 0 && index <= panels.Length - 1)
         {
 
@@ -91,13 +114,8 @@ public class UIController : MonoBehaviour
             currentOpenPanel.Show();
             // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
+            // Toggles unterhalb schließen
             hideOptions.HideToggles();
-        }
-
-        // CanvasGroup des aktuellen Panels speichern
-        if (currentOpenPanel != null)
-        {
-            currentCanvasGroup = currentOpenPanel.GetComponent<CanvasGroup>();
         }
     }
 
