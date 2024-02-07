@@ -37,10 +37,11 @@ public class ColorControllerStanding : MonoBehaviour
     public void SetColor(int index)
     {
 
-        // Suche nach allen Kind-Elementen die eine Renderer-Komponente besitzten
+        // Holt sich die Renderer-Komponente des gerade ausgewählten Rahmens
         Renderer renderer = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>();
 
         {
+            // Farbe über den Index holen
             currentColor = availableColors[index];
 
             // Ging mit .SetColor und dem _Color Identifier nicht, so irgendwie schon

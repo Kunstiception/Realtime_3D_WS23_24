@@ -14,15 +14,8 @@ public class Manager : MonoBehaviour
     /// </summary>
     private bool canvasActive = true;
 
-    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    // Wird die Leertaste gedrückt, wird das UI ausgeblendet
     void Update()
     {
         if (Input.GetKeyDown("space"))
@@ -31,6 +24,7 @@ public class Manager : MonoBehaviour
         }
     }
 
+    // Setzt das UI aktiv oder inaktiv je nach Variable
     private void HideUI()
     {
         if (canvasActive == true)

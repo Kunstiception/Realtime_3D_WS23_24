@@ -56,6 +56,7 @@ public class DecorationController : MonoBehaviour
 
     public void Start()
     {
+        // Noch keine Dekoation zu Anfang
         currentLoadedDecoration = null;
     }
     
@@ -81,7 +82,7 @@ public class DecorationController : MonoBehaviour
         // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
         decorationSize = currentLoadedDecoration.GetComponent<Renderer>().bounds.size;
 
-        // Ist der übergebene Index gültig
+        // Modulo, da jede zweite Deko oben links ist
         if (index % 2 == 0)
         {
 
@@ -103,7 +104,7 @@ public class DecorationController : MonoBehaviour
         }
 
 
-        // Ist der übergebene Index gültig
+        // Modulo, da jede zweite Deko unten rechts ist
         if (index % 2 == 1)
         {
 

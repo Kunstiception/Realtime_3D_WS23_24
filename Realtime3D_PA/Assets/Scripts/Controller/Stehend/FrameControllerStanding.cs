@@ -47,7 +47,7 @@ public class FrameControllerStanding : MonoBehaviour
 
     private void Start()
     {
-        // Set to inital state
+        // Anfangszustand definieren
         SetStandingFrame(0);
         materialControllerStanding.SetMaterial(0);
         colorControllerStanding.SetColor(0);
@@ -87,10 +87,12 @@ public class FrameControllerStanding : MonoBehaviour
             materialControllerStanding.SetMaterial(materialControllerStanding.currentMaterialIndex);
         }
 
+        // Ausgweählte Deko neu setzen, damit diese auch beim Rahmenwechsel erhalten bleibt
         if (decorationControllerStanding.currentLoadedDecorationStanding != null)
             decorationControllerStanding.SetStandingDecoration(decorationControllerStanding.currentDecorationIndex);
     }
 
+    // setzt alle Einstellungen am Rahmen zurück
     public void Reset()
     {
         SetStandingFrame(currentIndex);

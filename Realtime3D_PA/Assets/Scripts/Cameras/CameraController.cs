@@ -49,13 +49,22 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private float frameHeightStanding;
 
+    /// <summary>
+    /// Referenz zum HideOptions-Skript
+    /// </summary>
     public HideOptions hideOptions;
 
+    /// <summary>
+    /// Die Toggles für stehende Rahmen
+    /// </summary>
     public GameObject[] togglesStanding;
 
+    /// <summary>
+    /// Die Toggles für hängende Rahmen
+    /// </summary>
     public GameObject[] togglesHanging;
 
-
+    // Aktiviert die Auswahlmöglichkeiten für "hängend" und "stehend" und setzt die initiale Kamerapositon über den Index
     public void Start()
     {
         buttonStanding.SetBool("active", true);
@@ -66,8 +75,7 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// Menü für einen Index anzeigen
-    /// Bereits geöffnetes Menü schließen
+    /// Setzt den Index für den Animator der Kamera
     /// </summary>
     /// <param name="index">Welche Kamera angesteuert werden soll</param>
     public void SetCamera(int index)
@@ -77,13 +85,17 @@ public class CameraController : MonoBehaviour
             // Kommunikation mit dem Animator herstellen
             animator.SetInteger("CameraIndex", index);
             
+            // Falls derzeit ein Panel geöffnet ist
             if (uIController.currentOpenPanel != null)
             {
+                // Falls der übergebene Index 0 ist, und die Kamera derzeit entweder auf Position zwei oder drei steht
                 if (index == 0 && currentIndex == 2 | currentIndex == 3) 
                 {
+                    // Panel deaktivieren
                     uIController.ActivatePanel(uIController.currentOpenPanelIndex);
                     uIController.currentOpenPanel.gameObject.SetActive(false);
 
+                    // Togglegruppen ein- bzw. ausschalten
                     uIController.togglesHanging.SetActive(true);
                     uIController.togglesStanding.SetActive(false);
 
@@ -99,6 +111,7 @@ public class CameraController : MonoBehaviour
                         togglesHanging[i].gameObject.SetActive(true);
                     }
                 }
+                // Falls übergebener Index 2 ist, und die derzeitige Kameraposition 0 oder 1 ist
                 if (index == 2 && currentIndex == 0 |currentIndex == 1)
                 {
                     uIController.ActivatePanel(uIController.currentOpenPanelIndex);
@@ -122,11 +135,12 @@ public class CameraController : MonoBehaviour
             }
 
             
-            
+            // Der übergebene Index ist die neue Kameraposition
             currentIndex = index;
         }
     }
 
+    // Mit jedem neu instanziierten Rahmen wird berechnet, ob die Kameraposition angepasst werden muss
     public void CameraPosition()
     {
         // Wenn Kamera auf hängenden Rahmen zeigt, nur dessen Menü anzeigen
@@ -135,6 +149,7 @@ public class CameraController : MonoBehaviour
             // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
             frameHeight = frameController.currentLoadedFrame.GetComponent<Renderer>().bounds.size.y;
 
+            // Falls der Rahmen eine gewisse Höhe erreicht hat: wechsele die Kamera
             if (frameHeight > 0.20)
             {
                 SetCamera(1);
@@ -145,21 +160,5 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        // Wenn Kamera auf stehenden Rahmen zeigt, nur dessen Menü anzeigen
-        if (currentIndex >= 2 && currentIndex < 4)
-        {
-            // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
-            frameHeightStanding = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>().bounds.size.y;
-            Debug.Log(frameHeightStanding);
-            if (frameHeightStanding > 0.15)
-            {
-                SetCamera(3);
-
-            }
-            if (frameHeightStanding <= 0.15)
-            {
-                SetCamera(2);
-            }
-        }
     }
 }
