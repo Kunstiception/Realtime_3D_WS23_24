@@ -75,9 +75,10 @@ public class UIController : MonoBehaviour
             togglesHanging.SetActive(true);
             togglesStanding.SetActive(false);
             middlePanels.SetActive(true);
+            
         }
 
-        if (cameraController.currentIndex >= 2 && cameraController.currentIndex < 4)
+        if (cameraController.currentIndex > 1 && cameraController.currentIndex < 4)
         {
             // Aktiviert den Button für hängende Rahmen
             cameraController.buttonHanging.SetBool("active", true);
@@ -88,6 +89,7 @@ public class UIController : MonoBehaviour
             togglesHanging.SetActive(false);
             togglesStanding.SetActive(true);
             middlePanels.SetActive(true);
+            
         }
 
         if (cameraController.currentIndex == -1)
@@ -114,6 +116,7 @@ public class UIController : MonoBehaviour
             {
                 currentOpenPanel.Hide();
                 currentOpenPanel = null;
+                currentOpenPanelIndex = 0;
                 hideOptions.ShowToggles();
             }
         }
@@ -122,12 +125,16 @@ public class UIController : MonoBehaviour
         {
 
             currentOpenPanel = panels[index];
+            
             // Gerade ausgewähltes Panel aktiv schalten
             currentOpenPanel.gameObject.SetActive(true);
+            
             // Und auch zeigen
             currentOpenPanel.Show();
+
             // Den derzeitigen Index speichern
             currentOpenPanelIndex = index;
+            
             // Toggles unterhalb schließen
             hideOptions.HideToggles();
         }

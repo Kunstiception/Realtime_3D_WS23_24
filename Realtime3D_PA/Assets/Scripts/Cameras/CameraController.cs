@@ -51,6 +51,10 @@ public class CameraController : MonoBehaviour
 
     public HideOptions hideOptions;
 
+    public GameObject[] togglesStanding;
+
+    public GameObject[] togglesHanging;
+
 
     public void Start()
     {
@@ -68,23 +72,58 @@ public class CameraController : MonoBehaviour
     /// <param name="index">Welche Kamera angesteuert werden soll</param>
     public void SetCamera(int index)
     {
-        if (index >= 0)
+        if (index > -1)
         {
             // Kommunikation mit dem Animator herstellen
             animator.SetInteger("CameraIndex", index);
             
-            currentIndex = index;
-
-            Debug.Log(currentIndex);
-
-            Debug.Log(uIController.currentOpenPanel);
-
-            if (index == 0 | index == 2)
+            if (uIController.currentOpenPanel != null)
             {
-                uIController.currentOpenPanel = null;
+                if (index == 0 && currentIndex == 2 | currentIndex == 3) 
+                {
+                    uIController.ActivatePanel(uIController.currentOpenPanelIndex);
+                    uIController.currentOpenPanel.gameObject.SetActive(false);
 
+                    uIController.togglesHanging.SetActive(true);
+                    uIController.togglesStanding.SetActive(false);
+
+                    for (int i = 0; i <= togglesStanding.Length - 1; i++)
+
+                    {
+                        togglesStanding[i].gameObject.SetActive(false);
+                    }
+
+                    for (int i = 0; i <= togglesHanging.Length - 1; i++)
+
+                    {
+                        togglesHanging[i].gameObject.SetActive(true);
+                    }
+                }
+                if (index == 2 && currentIndex == 0 |currentIndex == 1)
+                {
+                    uIController.ActivatePanel(uIController.currentOpenPanelIndex);
+                    uIController.currentOpenPanel.gameObject.SetActive(false);
+
+                    uIController.togglesHanging.SetActive(false);
+                    uIController.togglesStanding.SetActive(true);
+
+                    for (int i = 0; i <= togglesStanding.Length - 1; i++)
+
+                    {
+                        togglesStanding[i].gameObject.SetActive(true);
+                    }
+
+                    for (int i = 0; i <= togglesHanging.Length - 1; i++)
+
+                    {
+                        togglesHanging[i].gameObject.SetActive(false);
+                    }
+                }
             }
 
+            
+            
+            currentIndex = index;
         }
     }
 
@@ -111,7 +150,7 @@ public class CameraController : MonoBehaviour
         {
             // gefunden auf: https://discussions.unity.com/t/find-size-of-gameobject/6193/2
             frameHeightStanding = frameControllerStanding.currentLoadedFrameStanding.GetComponent<Renderer>().bounds.size.y;
-
+            Debug.Log(frameHeightStanding);
             if (frameHeightStanding > 0.15)
             {
                 SetCamera(3);
@@ -119,7 +158,7 @@ public class CameraController : MonoBehaviour
             }
             if (frameHeightStanding <= 0.15)
             {
-                SetCamera(4);
+                SetCamera(2);
             }
         }
     }
